@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1987295765",
+    "firebase_url": "https://medication-box.firebaseio.com",
+    "project_id": "medication-box",
+    "storage_bucket": "medication-box.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1987295765:android:90cec5e84b8d5a52",
+        "android_client_info": {
+          "package_name": "com.example.medicationbox"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1987295765-elmrknsait10msoemqpo8b5ghkcsfcrj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.medicationbox",
+            "certificate_hash": "cbc42b83740ba918c9d21c00358a36bc7fbd8f76"
+          }
+        },
+        {
+          "client_id": "1987295765-580j28lhsfutfb3bpnmiq326d40qndgf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCc4qMl56knEZIts2WRYu1tmrM6KI2hfhk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1987295765-580j28lhsfutfb3bpnmiq326d40qndgf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
