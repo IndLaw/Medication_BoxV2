@@ -12,16 +12,12 @@ import com.google.firebase.firestore.SetOptions;
 
 public class FireBaseStorage {
 
-    private FirebaseUser currentUser;
     private FirebaseFirestore mFirestore;
     private DocumentReference docRef;
 
     public FireBaseStorage()
     {
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        currentUser = mAuth.getCurrentUser();
         mFirestore = FirebaseFirestore.getInstance();
-        docRef = mFirestore.collection("Users").document(userUID);
     }
 
     /************
@@ -35,6 +31,7 @@ public class FireBaseStorage {
 
     public void addToCollection(String userUID, String field, String value )
     {
+        docRef = mFirestore.collection("Users").document(userUID);
         Map<String, Object> update = new HashMap<>();
         update.put(field, value);
 
@@ -51,7 +48,8 @@ public class FireBaseStorage {
 
     public void addToCollection(String userUID, HashMap data)
     {
-        docRef.set(data.SetOptions.merge());
+        docRef = mFirestore.collection("Users").document(userUID);
+        docRef.set(data,SetOptions.merge());
     }
 
     /******
@@ -62,6 +60,7 @@ public class FireBaseStorage {
      */
     public void updateDocument(String userUID, String field, String value )
     {
+        docRef = mFirestore.collection("Users").document(userUID);
         docRef.update(field, value);
     }
 
