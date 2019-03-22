@@ -1,42 +1,28 @@
 package com.example.medicationbox;
 
-import java.io.Serializable;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class User implements Serializable {
+public class User{
 
     String name;
     String email;
-    String password;
+    String userUID;
 
-    public User(String name, String email, String password)
+    public User(String name, String email, String password, String userUID)
     {
         this.name = name;
         this.email = email;
-        this.password = password;
-    }
+        this.userUID = userUID;
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getEmail() {
-        return email;
-    }
+    public String getEmail() { return email;}
 
-    public String getPassword() {
-        return password;
-    }
+    public String getUID() { return userUID; }
 
 }
