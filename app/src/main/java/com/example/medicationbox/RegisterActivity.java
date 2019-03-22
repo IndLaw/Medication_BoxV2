@@ -69,6 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("login", "createUserWithEmail:success");
+                            storage.addToCollection("gCgHIhugXZTtdkjV40N84CEcKFa2", "bud", "lightyear");
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("login", "createUserWithEmail:failure", task.getException());
