@@ -7,30 +7,29 @@ import android.view.View;
 import android.widget.Button;
 
 public class DocumentView extends AppCompatActivity {
-
-    private Button toTheInsuranceCard;
-    private Button toThePerscription;
+    private Button toTheInsuranceCardChoice;
+    private Button toThePerscriptionChoice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_document_choice);
 
-        toTheInsuranceCard = findViewById(R.id.toinsurancecard);
-        toThePerscription = findViewById(R.id.toperscription);
+        toTheInsuranceCardChoice = findViewById(R.id.toinsurancecard);
+        toThePerscriptionChoice = findViewById(R.id.toperscription);
 
-        toTheInsuranceCard.setOnClickListener(new View.OnClickListener() {
+        toTheInsuranceCardChoice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent toincard = new Intent(DocumentView.this, InsuranceView.class);
+                Intent toincard = new Intent(DocumentView.this, insure_upload_choice.class);
                 startActivity(toincard);
             }
         });
 
-        toThePerscription.setOnClickListener(new View.OnClickListener() {
+        toThePerscriptionChoice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent toperscrip = new Intent(DocumentView.this, PerscriptionView.class);
+                Intent toperscrip = new Intent(DocumentView.this, perscrip_upload_choice.class);
                 startActivity(toperscrip);
             }
         });
