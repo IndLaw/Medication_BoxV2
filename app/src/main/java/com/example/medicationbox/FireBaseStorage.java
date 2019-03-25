@@ -3,13 +3,12 @@ package com.example.medicationbox;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -21,16 +20,17 @@ public class FireBaseStorage {
 
     private FirebaseFirestore mFirestore;
     private DocumentReference docRef;
+    private User user = null;
 
-    public FireBaseStorage()
+    FireBaseStorage()
     {
         mFirestore = FirebaseFirestore.getInstance();
     }
 
     /********
      * Adds User object to Firestore
-     * @param user
-     * @param userUID
+     * @param user - User object
+     * @param userUID - userUID to navigate Firestore files
      */
    public void addUser(User user, String userUID)
    {
@@ -42,15 +42,12 @@ public class FireBaseStorage {
        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
            @Override
            public void onSuccess(DocumentSnapshot documentSnapshot) {
-               User user = documentSnapshot.toObject(User.class);
-               if (user != null) {
-                   return user;
+               if (documentSnapshot.exists()) {
+                  user = documentSnapshot.toObject(User.class);
                }
-               else
-                   return null;
            }
        });
-       return null;
+       return user;
    }
 
     /************
@@ -75,8 +72,8 @@ public class FireBaseStorage {
     /*****
      * This method, like the previous, adds information to the database. It adds entire
      * hashmap full of data instead of individually, unlike the previous addToCollection.
-     * @param userUID
-     * @param data
+     * @param userUID - To navigate Firestore files
+     * @param data - Data you want to add, in the form of a Hashmap
      */
 
     public void addToCollection(String userUID, HashMap data)
@@ -87,9 +84,9 @@ public class FireBaseStorage {
 
     /******
      * Updates a specific field. It is mandatory for the field to exist within the database.
-     * @param userUID
-     * @param field
-     * @param value
+     * @param userUID - Used to find file in Firestore
+     * @param field - field in you want to change
+     * @param value - value of the field you want to change
      */
     public void updateDocument(String userUID, String field, String value)
     {
@@ -97,6 +94,11 @@ public class FireBaseStorage {
         docRef.update(field, value);
     }
 
+    /****
+     *  This method searches through the Firestore files for the specific document you are looking
+     *  for and returns it.
+     * @param userUID - Navigate Firebase files
+     */
     public void retrieveCollection(String userUID)
     {
         docRef = mFirestore.collection("Users").document(userUID);
