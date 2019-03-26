@@ -4,6 +4,10 @@
     <string name="askPassword">Password</string>
     <string name="button_press">Next</string>
 
+    <string name="title_activity_perscription_enter">perscription_enter</string>
+    <string name="title_activity_document_upload_choice">document_upload_choice</string>
+    <string name="title_activity_perscrip_upload_choice">perscrip_upload_choice</string>
+
     <!-- Login and Register activity strings (Not all are used) -->
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
@@ -18,5 +22,5 @@
     <string name="old_password">Old Password</string>
     <string name="new_password">New Password</string>
     <!-- Login and Register activity strings (Not all are used) -->
-
+    
 </resources>
