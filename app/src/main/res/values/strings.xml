@@ -22,5 +22,4 @@
     <string name="old_password">Old Password</string>
     <string name="new_password">New Password</string>
     <!-- Login and Register activity strings (Not all are used) -->
-    
 </resources>
