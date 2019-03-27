@@ -10,8 +10,11 @@ import android.util.Log;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.*;
-import com.google.firebase.*;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class RegisterActivity extends AppCompatActivity {
@@ -19,9 +22,11 @@ public class RegisterActivity extends AppCompatActivity {
     private Button mCreate;
     private EditText mEmail;
     private EditText mPassword;
-    // private User user;
+    private FirebaseAuth mAuth;
+    private DatabaseReference mReference;
+    private User user;
+    private FireBaseStorage storage;
 
-    private FireBase mFirebase;
 
     private static final String TAG = "EmailPassword";
 
@@ -30,7 +35,10 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        mFirebase = new FireBase();
+        mAuth = FirebaseAuth.getInstance();
+        mReference = FirebaseDatabase.getInstance()
+                .getReferenceFromUrl("https://medication-box.firebaseio.com");
+        storage = new FireBaseStorage();
 
         mCreate = (Button) findViewById(R.id.next_button);
         mCreate.setOnClickListener(new View.OnClickListener() {
@@ -42,15 +50,33 @@ public class RegisterActivity extends AppCompatActivity {
                 String email = mEmail.getText().toString();
                 String password = mPassword.getText().toString();
 
-
                 Log.e("EMAIL", "User email is " + email);
                 Log.e("PASSWORD", "User password is " + password);
 
-                mFirebase.createAccount(email, password);
+                createAccount(email, password);
 
             }
         });
 
+    }
+
+    public void createAccount(String email, String password)
+    {
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d("login", "createUserWithEmail:success");
+                            storage.addToCollection("gCgHIhugXZTtdkjV40N84CEcKFa2", "bud", "lightyear");
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w("login", "createUserWithEmail:failure", task.getException());
+
+                        }
+                    }
+                });
     }
 
 
