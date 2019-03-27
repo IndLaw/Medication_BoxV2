@@ -31,7 +31,7 @@ public class FireBase {
 
     }
 
-    public RegisterActivity(Context context){
+    public void RegisterActivity(Context context){
         this.context = context;
     }
 
