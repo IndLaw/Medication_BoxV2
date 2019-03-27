@@ -7,7 +7,7 @@ public class User{
 
     String name;
     String email;
-    Payment pmt[];
+    Payment pmt[] = new Payment[5]; //users can have up to 5 different payments, first is preferred
     String userUID;
     Perscription[] perscriptions = new Perscription[10];
     Insurance insurance;
@@ -17,7 +17,6 @@ public class User{
     {
         this.name = name;
         this.email = email;
-        pmt = new Payment[5]; //users can have up to 5 different payments, first is preferred
         this.userUID = userUID;
 	}
 	
