@@ -12,19 +12,19 @@ public class AddPmtActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_addPayment);
+        setContentView(R.layout.activity_addpayment);
 
         card = (Button) findViewById(R.id.addCard);
         bank = (Button) findViewById(R.id.addBank);
 
-        add.setOnClickListener(new View.OnClickListener() {
+        card.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent i = new Intent(AddPmtActivity.this, AddCardActivity.class);
                 startActivity(i);
             }
         });
 
-        delete.setOnClickListener(new View.OnClickListener() {
+        bank.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent i = new Intent(AddPmtActivity.this, AddBankActivity.class);
                 startActivity(i);
