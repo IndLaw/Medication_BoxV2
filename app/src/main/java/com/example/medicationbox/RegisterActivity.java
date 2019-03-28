@@ -71,7 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
                             Log.e("login", "createUserWithEmail:success");
                         } else {
 
-                            //Indiaminah 
+                            //Indiaminah
 
                         }
                     }
