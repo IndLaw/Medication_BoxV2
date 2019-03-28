@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,16 +14,17 @@
         tools:layout_editor_absoluteY="42dp">
 
         <Button
-            android:id="@+id/addPmt"
+            android:id="@+id/addCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add Payment" />
+            android:text="Add Card" />
 
         <Button
-            android:id="@+id/deletePmt"
+            android:id="@+id/addBank"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Remove Payment" />
+            android:text="Add Bank" />
 
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

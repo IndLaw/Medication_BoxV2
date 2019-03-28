@@ -5,14 +5,14 @@ import java.util.Date;
 public class Card extends Payment {
     private int number;
     private String cardholder;
-    private Date expire;
+    private Date expiry;
     private int csv;
 
-    Card(int number, String cardholder, Date expire, int csv)
+    Card(int number, String cardholder, Date expiry, int csv)
     {
         this.number = number;
         this.cardholder = cardholder;
-        this.expire = expire;
+        this.expiry = expiry;
         this.csv = csv;
     }
 
