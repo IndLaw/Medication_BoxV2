@@ -53,14 +53,14 @@ public class RegisterActivity extends AppCompatActivity {
                 Log.e("EMAIL", "User email is " + email);
                 Log.e("PASSWORD", "User password is " + password);
 
-                createAccount(email, password);
+                createAccount(email, password, "none");
 
             }
         });
 
     }
 
-    public void createAccount(String email, String password)
+    public void createAccount(String email, String password, String name)
     {
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -69,6 +69,8 @@ public class RegisterActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.e("login", "createUserWithEmail:success");
+
+
                         } else {
 
                             //Indiaminah
