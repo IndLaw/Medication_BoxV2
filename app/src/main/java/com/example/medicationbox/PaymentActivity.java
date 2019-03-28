@@ -15,6 +15,9 @@ public class PaymentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
 
+        //show current payment methods
+        //have option to change preferred
+
         add = (Button) findViewById(R.id.addPmt);
         delete = (Button) findViewById(R.id.deletePmt);
 

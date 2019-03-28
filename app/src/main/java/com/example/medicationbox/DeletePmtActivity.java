@@ -10,7 +10,7 @@ public class DeletePmtActivity extends AppCompatActivity {
         setContentView(R.layout.activity_deletepayment);
 
         for(int i = 0; usr.pmt[i] != null; i++){
-            //display cards with buttons
+            //display payment methods with buttons
         }
     }
 }
