@@ -8,6 +8,7 @@ import android.view.*;
 import android.widget.*;
 import android.util.Log;
 
+import com.example.medicationbox.helper.Functions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -62,6 +63,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void createAccount(String email, String password, String name)
     {
+        final String tEmail = email;
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -74,6 +76,10 @@ public class RegisterActivity extends AppCompatActivity {
                         } else {
 
                             //Indiaminah
+                            if (!Functions.isValidEmailAddress(tEmail))
+                            {
+                                Toast.makeText(getApplicationContext(), "Email is not valid!", Toast.LENGTH_SHORT).show();
+                            }
 
                         }
                     }
