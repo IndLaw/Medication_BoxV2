@@ -151,7 +151,7 @@ public class EmailVerify extends AppCompatActivity {
                         logout.logoutUser(getApplicationContext());
                         db.addUser(json_user.getString(KEY_UID), json_user.getString(KEY_NAME), json_user.getString(KEY_EMAIL), json_user.getString(KEY_CREATED_AT));
                         session.setLogin(true);
-                        Intent upanel = new Intent(EmailVerify.this, HomeActivity.class);
+                        Intent upanel = new Intent(EmailVerify.this, MainActivity.class);
                         upanel.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(upanel);
                         finish();

@@ -33,19 +33,19 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_register_temp);
 
         mAuth = FirebaseAuth.getInstance();
         mReference = FirebaseDatabase.getInstance()
                 .getReferenceFromUrl("https://medication-box.firebaseio.com");
         storage = new FireBaseStorage();
 
-        mCreate = (Button) findViewById(R.id.next_button);
+        mCreate = (Button) findViewById(R.id.btnRegister);
         mCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mEmail = (EditText) findViewById(R.id.email_editText);
-                mPassword = (EditText) findViewById(R.id.password_editText);
+                mEmail = (EditText) findViewById(R.id.rEditEmail);
+                mPassword = (EditText) findViewById(R.id.rEditPassword);
 
                 String email = mEmail.getText().toString();
                 String password = mPassword.getText().toString();
@@ -68,11 +68,10 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Log.d("login", "createUserWithEmail:success");
-                            storage.addToCollection("gCgHIhugXZTtdkjV40N84CEcKFa2", "bud", "lightyear");
+                            Log.e("login", "createUserWithEmail:success");
                         } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w("login", "createUserWithEmail:failure", task.getException());
+
+                            //Indiaminah
 
                         }
                     }
