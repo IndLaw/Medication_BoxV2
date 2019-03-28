@@ -32,7 +32,12 @@ public class AddCardActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int i;
                 for(i = 0; usr.pmt[i] != null; i++);
-                //usr.pmt[i] = new Card(Integer.parseInt(number), cardholder, new SimpleDateFormat("MM,yy").parse(expiry), Integer.parseInt(csv));
+                try {
+                    usr.pmt[i] = new Card(Integer.parseInt(number), cardholder, new SimpleDateFormat("MM,yy").parse(expiry), Integer.parseInt(csv));
+                }
+                catch(Exception e){
+                    Toast.makeText(getApplicationContext(), "Error parsing expiry date.", Toast.LENGTH_LONG).show();
+                }
                 Toast.makeText(getApplicationContext(), "Payment successfully added.", Toast.LENGTH_LONG).show();
             }
         });
