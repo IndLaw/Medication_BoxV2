@@ -14,8 +14,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class RegisterActivity extends AppCompatActivity {
@@ -34,7 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_temp);
+        setContentView(R.layout.activity_register);
 
         mAuth = FirebaseAuth.getInstance();
         mReference = FirebaseDatabase.getInstance()
@@ -47,14 +51,18 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mEmail = (EditText) findViewById(R.id.rEditEmail);
                 mPassword = (EditText) findViewById(R.id.rEditPassword);
+                EditText mName = (EditText)findViewById(R.id.rName);
+
+                mCreate.setBackgroundColor(getResources().getColor(R.color.red));
 
                 String email = mEmail.getText().toString();
                 String password = mPassword.getText().toString();
+                String name = mName.getText().toString();
 
                 Log.e("EMAIL", "User email is " + email);
                 Log.e("PASSWORD", "User password is " + password);
 
-                createAccount(email, password, "none");
+                createAccount(email, password, name);
 
             }
         });
@@ -64,6 +72,8 @@ public class RegisterActivity extends AppCompatActivity {
     public void createAccount(String email, String password, String name)
     {
         final String tEmail = email;
+        final String tPassword = password;
+        final String tName = name;
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -71,11 +81,23 @@ public class RegisterActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.e("login", "createUserWithEmail:success");
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+                            if (user != null) {
+                                for (UserInfo profile : user.getProviderData()) {
+                                    String uid = profile.getUid();
+                                    Map<String, String> data = new HashMap<>();
+                                    data.put("name", tName);
+                                    data.put("email", tEmail);
+                                    Log.e("login", "uid:" + uid);
+
+                                    storage.addToCollection(uid, data);
+
+                                }
+                            }
 
                         } else {
 
-                            //Indiaminah
                             if (!Functions.isValidEmailAddress(tEmail))
                             {
                                 Toast.makeText(getApplicationContext(), "Email is not valid!", Toast.LENGTH_SHORT).show();
@@ -85,6 +107,7 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 });
     }
+
 
 
 }

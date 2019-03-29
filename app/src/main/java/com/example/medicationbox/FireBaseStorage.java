@@ -76,7 +76,7 @@ public class FireBaseStorage {
      * @param data - Data you want to add, in the form of a Hashmap
      */
 
-    public void addToCollection(String userUID, HashMap data)
+    public void addToCollection(String userUID, Map data)
     {
         docRef = mFirestore.collection("Users").document(userUID);
         docRef.set(data,SetOptions.merge());
@@ -119,6 +119,11 @@ public class FireBaseStorage {
                     Log.d("retrieval", "Failed");
             }
         });
+    }
+
+    public void uploadFiles(String path)
+    {
+
     }
 
 }

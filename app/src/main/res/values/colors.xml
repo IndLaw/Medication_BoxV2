@@ -4,4 +4,9 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="white">#FFFFFF</color>
+    <color name="snow">#FCFAF7</color>
+    <color name="queenPink">#EDCECF</color>
+    <color name="red">#F93943</color>
+    <color name="lightBlue">#7EB2DD</color>
+    <color name="queenBlue">#445E93</color>
 </resources>
