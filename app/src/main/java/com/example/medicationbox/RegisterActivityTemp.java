@@ -11,14 +11,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
 import com.example.medicationbox.helper.Functions;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 
 import java.util.HashMap;
@@ -31,6 +25,9 @@ public class RegisterActivityTemp extends AppCompatActivity {
     private Button btnRegister, btnLinkToLogin;
     private TextInputLayout inputName, inputEmail, inputPassword;
     private ProgressDialog pDialog;
+    String name = "";
+    String email = "";
+    String password = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +65,8 @@ public class RegisterActivityTemp extends AppCompatActivity {
                 // Check for empty data in the form
                 if (!name.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
                     if (Functions.isValidEmailAddress(email)) {
-                        registerUser(name, email, password);
+                        //the register user function would go here
+                        //registerUser(name, email, password); <-----------
                     } else {
                         Toast.makeText(getApplicationContext(), "Email is not valid!", Toast.LENGTH_SHORT).show();
                     }
@@ -90,73 +88,35 @@ public class RegisterActivityTemp extends AppCompatActivity {
         });
     }
 
-    private void registerUser(final String name, final String email, final String password) {
-        // Tag used to cancel the request
-        String tag_string_req = "req_register";
 
-        pDialog.setMessage("Registering ...");
-        showDialog();
+    // Tag used to cancel the request
+    //String tag_string_req = "req_register";
 
-        StringRequest strReq = new StringRequest(Request.Method.POST,
-                Functions.REGISTER_URL, new Response.Listener<String>() {
+    //    pDialog.setMessage("Registering ...");
+    //showDialog();
 
-            @Override
-            public void onResponse(String response) {
-                Log.d(TAG, "Register Response: " + response);
-                hideDialog();
+    // Adding request to request queue
+    //    ApplicationTemp.getInstance().addToRequestQueue(strReq, tag_string_req);
 
-                try {
-                    JSONObject jObj = new JSONObject(response);
-                    boolean error = jObj.getBoolean("error");
-                    if (!error) {
-                        Functions logout = new Functions();
-                        logout.logoutUser(getApplicationContext());
+    // Error occurred in registration. Get the error
+    // message
+    //String errorMsg = jObj.getString("message");
+    //                    Toast.makeText(getApplicationContext(),errorMsg, Toast.LENGTH_LONG).show();
 
-                        Bundle b = new Bundle();
-                        b.putString("email", email);
-                        Intent i = new Intent(RegisterActivityTemp.this, EmailVerify.class);
-                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        i.putExtras(b);
-                        startActivity(i);
-                        pDialog.dismiss();
-                        finish();
+    protected Map<String, String> getParams() {
+        // Posting params to register url
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("name", name);
+        params.put("email", email);
+        params.put("password", password);
 
-                    } else {
-                        // Error occurred in registration. Get the error
-                        // message
-                        String errorMsg = jObj.getString("message");
-                        Toast.makeText(getApplicationContext(),errorMsg, Toast.LENGTH_LONG).show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+        return params;
+    }
 
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e(TAG, "Registration Error: " + error.getMessage());
-                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
-                hideDialog();
-            }
-        }) {
-
-            @Override
-            protected Map<String, String> getParams() {
-                // Posting params to register url
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("name", name);
-                params.put("email", email);
-                params.put("password", password);
-
-                return params;
-            }
-
-        };
-
-        // Adding request to request queue
-        ApplicationTemp.getInstance().addToRequestQueue(strReq, tag_string_req);
+    public void onErrorResponse(VolleyError error) {
+        Log.e(TAG, "Registration Error: " + error.getMessage());
+        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+        hideDialog();
     }
 
     private void showDialog() {
