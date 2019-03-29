@@ -76,7 +76,7 @@ public class FireBaseStorage {
      * @param data - Data you want to add, in the form of a Hashmap
      */
 
-    public void addToCollection(String userUID, Map data)
+    public void addMapToCollection(String userUID, Map data)
     {
         docRef = mFirestore.collection("Users").document(userUID);
         docRef.set(data,SetOptions.merge());

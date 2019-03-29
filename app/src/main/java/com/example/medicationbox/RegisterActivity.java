@@ -51,6 +51,9 @@ public class RegisterActivity extends AppCompatActivity {
         mCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                mCreate.setBackgroundColor(getResources().getColor(R.color.red));
+
                 mEmail = (EditText) findViewById(R.id.rEditEmail);
                 mPassword = (EditText) findViewById(R.id.rEditPassword);
                 EditText mName = (EditText)findViewById(R.id.rName);
@@ -59,9 +62,6 @@ public class RegisterActivity extends AppCompatActivity {
                 String email = mEmail.getText().toString();
                 String password = mPassword.getText().toString();
                 String name = mName.getText().toString();
-
-                Functions.hideSoftKeyboard(RegisterActivity.this);
-                mCreate.setBackgroundColor(getResources().getColor(R.color.red));
 
 
                 // Check for empty data in the form
@@ -76,21 +76,15 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Please enter your details!", Toast.LENGTH_LONG).show();
                 }
 
-
-                //String email = mEmail.getText().toString();
-                //String password = mPassword.getText().toString();
-                //String name = mName.getText().toString();
-
                 Log.e("EMAIL", "User email is " + email);
                 Log.e("PASSWORD", "User password is " + password);
-
             }
         });
 
     }
 
 
-    public void createAccount(String email, String password, String name)
+    public void createAccount(String name, String email, String password)
     {
         final String tEmail = email;
         final String tPassword = password;
@@ -105,16 +99,15 @@ public class RegisterActivity extends AppCompatActivity {
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                             if (user != null) {
-                                for (UserInfo profile : user.getProviderData()) {
-                                    String uid = profile.getUid();
-                                    Map<String, String> data = new HashMap<>();
-                                    data.put("name", tName);
-                                    data.put("email", tEmail);
-                                    Log.e("login", "uid:" + uid);
+                                String uid = user.getUid();
+                                Map<String, String> data = new HashMap<>();
+                                data.put("name", tName);
+                                data.put("email", tEmail);
+                                data.put("password", tPassword);
+                                Log.e("login", "uid:" + uid);
 
-                                    storage.addToCollection(uid, data);
+                                storage.addMapToCollection(uid, data);
 
-                                }
                             }
 
                         }
