@@ -121,9 +121,6 @@ public class EmailVerify extends AppCompatActivity {
     }
 
 
-
-
-
     private void showDialog() {
         if (!pDialog.isShowing())
             pDialog.show();
