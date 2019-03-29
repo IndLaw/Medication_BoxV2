@@ -1,6 +1,7 @@
 package com.example.medicationbox;
 
 import android.content.Intent;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
 import android.os.Bundle;
@@ -31,6 +32,8 @@ public class RegisterActivity extends AppCompatActivity {
     private DatabaseReference mReference;
     private User user;
     private FireBaseStorage storage;
+    private Button btnRegister, btnLinkToLogin;
+    private TextInputLayout inputName, inputEmail, inputPassword;
 
 
     private static final String TAG = "EmailPassword";
@@ -69,6 +72,35 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
+    private void init() {
+        // Login button Click Event
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+                // Hide Keyboard
+                Functions.hideSoftKeyboard(RegisterActivity.this);
+
+                String name = inputName.getEditText().getText().toString().trim();
+                String email = inputEmail.getEditText().getText().toString().trim();
+                String password = inputPassword.getEditText().getText().toString().trim();
+
+                // Check for empty data in the form
+                if (!name.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
+                    if (Functions.isValidEmailAddress(email)) {
+                        //the register user function would go here
+                        createAccount(name, email, password);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Email is not valid!", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "Please enter your details!", Toast.LENGTH_LONG).show();
+                }
+            }
+
+        });
+
+    }
+
     public void createAccount(String email, String password, String name)
     {
         final String tEmail = email;
@@ -94,13 +126,6 @@ public class RegisterActivity extends AppCompatActivity {
                                     storage.addToCollection(uid, data);
 
                                 }
-                            }
-
-                        } else {
-
-                            if (!Functions.isValidEmailAddress(tEmail))
-                            {
-                                Toast.makeText(getApplicationContext(), "Email is not valid!", Toast.LENGTH_SHORT).show();
                             }
 
                         }
