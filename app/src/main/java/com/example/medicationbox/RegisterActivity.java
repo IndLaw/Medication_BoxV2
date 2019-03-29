@@ -33,7 +33,6 @@ public class RegisterActivity extends AppCompatActivity {
     private User user;
     private FireBaseStorage storage;
     private Button btnRegister, btnLinkToLogin;
-    private TextInputLayout inputName, inputEmail, inputPassword;
 
 
     private static final String TAG = "EmailPassword";
@@ -56,33 +55,14 @@ public class RegisterActivity extends AppCompatActivity {
                 mPassword = (EditText) findViewById(R.id.rEditPassword);
                 EditText mName = (EditText)findViewById(R.id.rName);
 
-                mCreate.setBackgroundColor(getResources().getColor(R.color.red));
 
                 String email = mEmail.getText().toString();
                 String password = mPassword.getText().toString();
                 String name = mName.getText().toString();
 
-                Log.e("EMAIL", "User email is " + email);
-                Log.e("PASSWORD", "User password is " + password);
-
-                createAccount(email, password, name);
-
-            }
-        });
-
-    }
-
-    private void init() {
-        // Login button Click Event
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View view) {
-                // Hide Keyboard
                 Functions.hideSoftKeyboard(RegisterActivity.this);
+                mCreate.setBackgroundColor(getResources().getColor(R.color.red));
 
-                String name = inputName.getEditText().getText().toString().trim();
-                String email = inputEmail.getEditText().getText().toString().trim();
-                String password = inputPassword.getEditText().getText().toString().trim();
 
                 // Check for empty data in the form
                 if (!name.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
@@ -95,11 +75,20 @@ public class RegisterActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(getApplicationContext(), "Please enter your details!", Toast.LENGTH_LONG).show();
                 }
-            }
 
+
+                //String email = mEmail.getText().toString();
+                //String password = mPassword.getText().toString();
+                //String name = mName.getText().toString();
+
+                Log.e("EMAIL", "User email is " + email);
+                Log.e("PASSWORD", "User password is " + password);
+
+            }
         });
 
     }
+
 
     public void createAccount(String email, String password, String name)
     {
