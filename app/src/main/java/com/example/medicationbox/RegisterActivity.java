@@ -127,7 +127,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    GMailSender gMailSender = new GMailSender(email, password);
+                    GMailSender gMailSender = new GMailSender("mederx@gmail.com", "1530group");
                     gMailSender.sendMail("MedEx", "Hello!\n\nThank you for choosing MedEx!\n\nThe MedEx Team",
                             "mederx@gmail.com", email);
                     progressDialog.dismiss();
