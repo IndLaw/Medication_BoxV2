@@ -1,5 +1,6 @@
 package com.example.medicationbox;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -33,6 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
     private User user;
     private FireBaseStorage storage;
     private Button btnRegister, btnLinkToLogin;
+    private ProgressDialog pDialog;
 
 
     private static final String TAG = "EmailPassword";
@@ -113,6 +115,16 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
     }
 
 

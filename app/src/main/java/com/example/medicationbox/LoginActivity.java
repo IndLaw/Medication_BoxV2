@@ -96,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
         // Link to Register Screen
         btnLinkToRegister.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent i = new Intent(LoginActivity.this, RegisterActivityTemp.class);
+                Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(i);
             }
         });
