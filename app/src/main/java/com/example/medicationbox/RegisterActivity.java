@@ -125,6 +125,7 @@ public class RegisterActivity extends AppCompatActivity {
         sendemailintent.putExtra(Intent.EXTRA_TEXT, "Hello!\n\n Thank you for choosing MedEx!\n\nFrom,\nThe MedEx Team");
         try {
             startActivity(Intent.createChooser(sendemailintent, "Send an email"));
+            finish();
         } catch (android.content.ActivityNotFoundException notFound) {
             Toast.makeText(RegisterActivity.this, "No email clients found", Toast.LENGTH_SHORT).show();
         }
