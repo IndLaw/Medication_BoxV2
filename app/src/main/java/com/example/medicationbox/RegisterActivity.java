@@ -81,7 +81,7 @@ public class RegisterActivity extends AppCompatActivity {
                 Log.e("EMAIL", "User email is " + email);
                 Log.e("PASSWORD", "User password is " + password);
 
-                sendConf(email);
+                sendConf(email, password);
             }
         });
 
@@ -119,28 +119,24 @@ public class RegisterActivity extends AppCompatActivity {
                 });
     }
 
-    public void sendConf (String email) {
-        Intent sendemailintent = new Intent(Intent.ACTION_SEND);
-        sendemailintent.setType("message/rfc822");
-        sendemailintent.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
-        sendemailintent.putExtra(Intent.EXTRA_SUBJECT, "Thank you for choosing MedEx");
-        sendemailintent.putExtra(Intent.EXTRA_TEXT, "Hello!\n\n Thank you for choosing MedEx!\n\nFrom,\nThe MedEx Team");
-        try {
-            startActivity(Intent.createChooser(sendemailintent, "Send an email"));
-            finish();
-        } catch (android.content.ActivityNotFoundException notFound) {
-            Toast.makeText(RegisterActivity.this, "No email clients found", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void showDialog() {
-        if (!pDialog.isShowing())
-            pDialog.show();
-    }
-
-    private void hideDialog() {
-        if (pDialog.isShowing())
-            pDialog.dismiss();
+    public void sendConf (final String email, final String password) {
+        final ProgressDialog progressDialog = new ProgressDialog(RegisterActivity.this);
+        progressDialog.setTitle("Send Email");
+        progressDialog.show();
+        Thread send = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    GMailSender gMailSender = new GMailSender(email, password);
+                    gMailSender.sendMail("MedEx", "Hello!\n\nThank you for choosing MedEx!\n\nThe MedEx Team",
+                            "mederx@gmail.com", email);
+                    progressDialog.dismiss();
+                } catch (Exception excep) {
+                    Log.e("error_log", "Error: " + excep.getMessage());
+                }
+            }
+        });
+        send.start();
     }
 
 
