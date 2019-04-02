@@ -122,7 +122,7 @@ public class RegisterActivity extends AppCompatActivity {
     public void sendConf (String email) {
         Intent sendemailintent = new Intent(Intent.ACTION_SEND);
         sendemailintent.setType("message/rfc822");
-        sendemailintent.putExtra(Intent.EXTRA_EMAIL, email);
+        sendemailintent.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
         sendemailintent.putExtra(Intent.EXTRA_SUBJECT, "Thank you for choosing MedEx");
         sendemailintent.putExtra(Intent.EXTRA_TEXT, "Hello!\n\n Thank you for choosing MedEx!\n\nFrom,\nThe MedEx Team");
         try {
@@ -132,7 +132,7 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(RegisterActivity.this, "No email clients found", Toast.LENGTH_SHORT).show();
         }
     }
-    
+
     private void showDialog() {
         if (!pDialog.isShowing())
             pDialog.show();
