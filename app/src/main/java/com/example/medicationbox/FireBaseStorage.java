@@ -123,7 +123,21 @@ public class FireBaseStorage {
 
     public void uploadFiles(String path)
     {
+        Uri file = Uri.fromFile(new File(path));
+        StorageReference riversRef = storageRef.child("images/"+file.getLastPathSegment());
+        uploadTask = riversRef.putFile(file);
 
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                Log.e("upload", "fail" );
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
+                // ...
+            }
+        });
     }
 
 }
