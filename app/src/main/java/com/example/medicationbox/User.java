@@ -13,7 +13,7 @@ public class User{
     Perscription[] perscriptions = new Perscription[10];
     Insurance insurance;
     int numPercriptions;
-    HashMap<String, Bitmap> pictures = new HashMap<String, Bitmap>();
+    HashMap<String, Bitmap> pictures;
 
     public User(String name, String email, String userUID, String password)
     {
@@ -21,8 +21,9 @@ public class User{
         this.email = email;
         this.userUID = userUID;
         this.password = password;
-        numPercriptions = 0;
-        perscriptions = new Perscription[10];
+        this.numPercriptions = 0;
+        this.perscriptions = new Perscription[10];
+        this.pictures = new HashMap<String, Bitmap>();
 	}
 
     public String getPassword() { return password; }
