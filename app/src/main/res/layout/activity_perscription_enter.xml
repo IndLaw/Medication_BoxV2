@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:gravity="center">
 
     <LinearLayout
         android:layout_width="355dp"
@@ -14,7 +17,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name of Patient" />
+            android:hint="Name of Patient" />
 
         <EditText
             android:id="@+id/doctorname"
@@ -22,7 +25,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name of Doctor" />
+            android:hint="Name of Doctor" />
 
         <EditText
             android:id="@+id/doctorsaddress"
@@ -30,7 +33,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Address of Doctor's Office" />
+            android:hint="Address of Doctor's Office" />
 
         <EditText
             android:id="@+id/patientsaddress"
@@ -38,7 +41,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Address of Patient" />
+            android:hint="Address of Patient" />
 
         <EditText
             android:id="@+id/medsname"
@@ -46,7 +49,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name of Medication" />
+            android:hint="Name of Medication" />
 
         <EditText
             android:id="@+id/perscripdose"
@@ -54,7 +57,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Dosage" />
+            android:hint="Dosage" />
 
         <EditText
             android:id="@+id/patientsage"
@@ -62,7 +65,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            android:text="Age of Patient" />
+            android:hint="Age of Patient" />
 
         <EditText
             android:id="@+id/refillnum"
@@ -70,13 +73,16 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            android:text="Number of Refills" />
+            android:hint="Number of Refills" />
 
         <Button
             android:id="@+id/nextperscription"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Next" />
+            android:text="Next"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 </LinearLayout>
