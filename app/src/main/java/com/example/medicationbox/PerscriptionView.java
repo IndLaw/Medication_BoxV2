@@ -25,15 +25,15 @@ public class PerscriptionView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perscription_enter);
 
-        perscriptionNext = (Button) findViewById(R.id.nextperscription);
-        paname = (EditText) findViewById(R.id.patientsname);
-        paaddress = (EditText) findViewById(R.id.patientsaddress);
-        docname = (EditText) findViewById(R.id.doctorname);
-        docaddress = (EditText) findViewById(R.id.doctorsaddress);
-        paage = (EditText) findViewById(R.id.patientsage);
-        numrefills = (EditText) findViewById(R.id.refillnum);
-        medicationname = (EditText) findViewById(R.id.medsname);
-        dosedescription = (EditText) findViewById(R.id.perscripdose);
+        perscriptionNext = findViewById(R.id.nextperscription);
+        paname = findViewById(R.id.patientsname);
+        paaddress = findViewById(R.id.patientsaddress);
+        docname = findViewById(R.id.doctorname);
+        docaddress = findViewById(R.id.doctorsaddress);
+        paage = findViewById(R.id.patientsage);
+        numrefills = findViewById(R.id.refillnum);
+        medicationname = findViewById(R.id.medsname);
+        dosedescription = findViewById(R.id.perscripdose);
 
         perscriptionNext.setOnClickListener(new View.OnClickListener() {
             @Override

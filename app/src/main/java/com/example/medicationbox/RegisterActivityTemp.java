@@ -34,11 +34,11 @@ public class RegisterActivityTemp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        inputName = (TextInputLayout) findViewById(R.id.rTextName);
-        inputEmail = (TextInputLayout) findViewById(R.id.rTextEmail);
-        inputPassword = (TextInputLayout) findViewById(R.id.rTextPassword);
-        btnRegister = (Button) findViewById(R.id.btnRegister);
-        btnLinkToLogin = (Button) findViewById(R.id.btnLinkToLoginScreen);
+        inputName = findViewById(R.id.rTextName);
+        inputEmail = findViewById(R.id.rTextEmail);
+        inputPassword = findViewById(R.id.rTextPassword);
+        btnRegister = findViewById(R.id.btnRegister);
+        btnLinkToLogin = findViewById(R.id.btnLinkToLoginScreen);
 
         // Progress dialog
         pDialog = new ProgressDialog(this);

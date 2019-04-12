@@ -49,16 +49,16 @@ public class RegisterActivity extends AppCompatActivity {
                 .getReferenceFromUrl("https://medication-box.firebaseio.com");
         storage = new FireBaseStorage();
 
-        mCreate = (Button) findViewById(R.id.btnRegister);
+        mCreate = findViewById(R.id.btnRegister);
         mCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 mCreate.setBackgroundColor(getResources().getColor(R.color.red));
 
-                mEmail = (EditText) findViewById(R.id.rEditEmail);
-                mPassword = (EditText) findViewById(R.id.rEditPassword);
-                EditText mName = (EditText)findViewById(R.id.rName);
+                mEmail = findViewById(R.id.rEditEmail);
+                mPassword = findViewById(R.id.rEditPassword);
+                EditText mName = findViewById(R.id.rName);
 
 
                 String email = mEmail.getText().toString();

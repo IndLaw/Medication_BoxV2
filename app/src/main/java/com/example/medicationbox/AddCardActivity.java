@@ -17,7 +17,7 @@ public class AddCardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addcard);
 
-        confirm = (Button) findViewById(R.id.confirm);
+        confirm = findViewById(R.id.confirm);
         inputNumber = findViewById(R.id.number);
         inputCardholder = findViewById(R.id.cardholder);
         inputExpiry = findViewById(R.id.expiry);

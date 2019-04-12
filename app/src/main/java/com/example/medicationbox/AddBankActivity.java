@@ -15,7 +15,7 @@ public class AddBankActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addbank);
 
-        confirm = (Button) findViewById(R.id.confirm);
+        confirm = findViewById(R.id.confirm);
         inputRouting = findViewById(R.id.routing);
         inputAccountNo = findViewById(R.id.accountNo);
         inputName = findViewById(R.id.name);

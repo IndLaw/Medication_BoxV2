@@ -14,8 +14,8 @@ public class AddPmtActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addpayment);
 
-        card = (Button) findViewById(R.id.addCard);
-        bank = (Button) findViewById(R.id.addBank);
+        card = findViewById(R.id.addCard);
+        bank = findViewById(R.id.addBank);
 
         card.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {

@@ -39,11 +39,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        inputEmail = (TextInputLayout) findViewById(R.id.lTextEmail);
-        inputPassword = (TextInputLayout) findViewById(R.id.lTextPassword);
-        btnLogin = (Button) findViewById(R.id.btnLogin);
-        btnLinkToRegister = (Button) findViewById(R.id.btnLinkToRegisterScreen);
-        btnForgotPass = (Button) findViewById(R.id.btnForgotPassword);
+        inputEmail = findViewById(R.id.lTextEmail);
+        inputPassword = findViewById(R.id.lTextPassword);
+        btnLogin = findViewById(R.id.btnLogin);
+        btnLinkToRegister = findViewById(R.id.btnLinkToRegisterScreen);
+        btnForgotPass = findViewById(R.id.btnForgotPassword);
 
         // Progress dialog
         pDialog = new ProgressDialog(this);
@@ -119,7 +119,7 @@ public class LoginActivity extends AppCompatActivity {
         dialogBuilder.setTitle("Forgot Password");
         dialogBuilder.setCancelable(false);
 
-        final TextInputLayout mEditEmail = (TextInputLayout) dialogView.findViewById(R.id.editEmail);
+        final TextInputLayout mEditEmail = dialogView.findViewById(R.id.editEmail);
 
         dialogBuilder.setPositiveButton("Reset", new DialogInterface.OnClickListener() {
             @Override

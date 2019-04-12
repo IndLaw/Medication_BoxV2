@@ -54,10 +54,10 @@ public class EmailVerify extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_email_verify);
 
-        textVerifyCode = (TextInputLayout) findViewById(R.id.verify_code);
-        btnVerify = (Button) findViewById(R.id.btnVerify);
-        btnResend = (Button) findViewById(R.id.btnResendCode);
-        otpCountDown = (TextView) findViewById(R.id.otpCountDown);
+        textVerifyCode = findViewById(R.id.verify_code);
+        btnVerify = findViewById(R.id.btnVerify);
+        btnResend = findViewById(R.id.btnResendCode);
+        otpCountDown = findViewById(R.id.otpCountDown);
 
         bundle = getIntent().getExtras();
 
