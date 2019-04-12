@@ -121,18 +121,18 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void sendConf (final String email, final String password) {
         final ProgressDialog progressDialog = new ProgressDialog(RegisterActivity.this);
-        progressDialog.setTitle("Send Email");
+        progressDialog.setTitle(email);
         progressDialog.show();
         Thread send = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    GMailSender gMailSender = new GMailSender("mederx@gmail.com", "1530group");
+                    GMailSender gMailSender = new GMailSender("mederxbox@gmail.com", "1530Group");
                     gMailSender.sendMail("MedEx", "Hello!\n\nThank you for choosing MedEx!\n\nThe MedEx Team",
-                            "mederx@gmail.com", email);
+                            "mederxbox@gmail.com", email);
                     progressDialog.dismiss();
-                } catch (Exception excep) {
-                    Log.e("error_log", "Error: " + excep.getMessage());
+                } catch (Exception e) {
+                    Log.e("error_log", "Error: " + e.getMessage());
                 }
             }
         });
