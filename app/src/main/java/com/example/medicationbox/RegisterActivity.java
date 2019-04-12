@@ -1,6 +1,7 @@
 package com.example.medicationbox;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
 import android.os.Bundle;
@@ -79,6 +80,16 @@ public class RegisterActivity extends AppCompatActivity {
                 Log.e("PASSWORD", "User password is " + password);
 
                 sendConf(email, password);
+            }
+        });
+
+        // Link to Register Screen
+        btnLinkToLogin.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+                Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(i);
+                finish();
             }
         });
 
