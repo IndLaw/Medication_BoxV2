@@ -11,9 +11,9 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="161dp"
-        android:layout_height="148dp"
-        app:srcCompat="@drawable/common_google_signin_btn_icon_dark_normal" />
+        android:layout_width="276dp"
+        android:layout_height="89dp"
+        app:srcCompat="@drawable/medextitlelogo" />
 
     <LinearLayout
         android:layout_width="wrap_content"
