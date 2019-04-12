@@ -49,6 +49,15 @@ public class RegisterActivity extends AppCompatActivity {
                 .getReferenceFromUrl("https://medication-box.firebaseio.com");
         storage = new FireDatabase();
 
+        // Link to Register Screen
+        btnLinkToLogin.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+                Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(i);
+            }
+        });
+
         mCreate = findViewById(R.id.btnRegister);
         mCreate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,16 +93,6 @@ public class RegisterActivity extends AppCompatActivity {
                 sendConf(email, password);
             }
         });
-
-        // Link to Register Screen
-        btnLinkToLogin.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View view) {
-                Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
-                startActivity(i);
-            }
-        });
-
     }
 
 
