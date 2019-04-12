@@ -1,5 +1,8 @@
 package com.example.medicationbox;
 
+import java.util.HashMap;
+import android.graphics.Bitmap;
+
 public class User{
 
     String name;
@@ -10,6 +13,7 @@ public class User{
     Perscription[] perscriptions = new Perscription[10];
     Insurance insurance;
     int numPercriptions;
+    HashMap<String, Bitmap> pictures = new HashMap<String, Bitmap>();
 
     public User(String name, String email, String userUID, String password)
     {
@@ -67,5 +71,31 @@ public class User{
             }
         }
         return null;
+    }
+
+    public HashMap<String, Bitmap> getPictures() {
+        return pictures;
+    }
+
+    public void setPictures(HashMap<String, Bitmap> pictures) {
+        this.pictures = pictures;
+    }
+
+    public Bitmap addPicture(String picID, Bitmap picture) {
+        pictures.put(picID, picture);
+        return pictures.get(picID);
+    }
+
+    public Bitmap getPicture(String picID) {
+        return pictures.get(picID);
+    }
+
+    public Bitmap removePicture(String picID) {
+        return pictures.remove(picID);
+    }
+
+    public Bitmap changePicture(String picID, Bitmap picture) {
+        pictures.put(picID, picture);
+        return pictures.get(picID);
     }
 }
