@@ -84,6 +84,14 @@
             android:inputType="number"
             android:hint="Number of Refills" />
 
+        <EditText
+            android:id="@+id/perquantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Quantity" />
+
         <Button
             android:id="@+id/nextperscription"
             android:layout_width="match_parent"

@@ -9,10 +9,11 @@ public class Perscription {
     private String medName;
     private int refill;
     private String dose;
+    private String quantity;
 
     public Perscription(String doctorName, String patientName, int patientAge,
                         String doctorAddress, String patientAddress, String medName, int refill,
-                        String dose) {
+                        String dose, String quantity) {
         this.doctorName = doctorName;
         this.patientName = patientName;
         this.patientAge = patientAge;
@@ -21,7 +22,12 @@ public class Perscription {
         this.medName = medName;
         this.refill = refill;
         this.dose = dose;
+        this.quantity = quantity;
     }
+
+    public String getQuantity() { return quantity; }
+
+    public void setQuantity(String quantity) { this.quantity = quantity; }
 
     public void setDoctorName(String doctorName) {
         this.doctorName = doctorName;
