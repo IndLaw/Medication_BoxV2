@@ -42,6 +42,8 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        btnLinkToLogin = findViewById(R.id.btnLinkToLoginScreen);
+        btnRegister = findViewById(R.id.btnRegister);
         mAuth = FirebaseAuth.getInstance();
         mReference = FirebaseDatabase.getInstance()
                 .getReferenceFromUrl("https://medication-box.firebaseio.com");
@@ -89,7 +91,6 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
                 startActivity(i);
-                finish();
             }
         });
 
