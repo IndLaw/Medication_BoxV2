@@ -1,6 +1,7 @@
 package com.example.medicationbox;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
 import android.os.Bundle;
@@ -41,10 +42,21 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        btnLinkToLogin = findViewById(R.id.btnLinkToLoginScreen);
+        btnRegister = findViewById(R.id.btnRegister);
         mAuth = FirebaseAuth.getInstance();
         mReference = FirebaseDatabase.getInstance()
                 .getReferenceFromUrl("https://medication-box.firebaseio.com");
         storage = new FireDatabase();
+
+        // Link to Register Screen
+        btnLinkToLogin.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+                Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(i);
+            }
+        });
 
         mCreate = findViewById(R.id.btnRegister);
         mCreate.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +93,6 @@ public class RegisterActivity extends AppCompatActivity {
                 sendConf(email, password);
             }
         });
-
     }
 
 
