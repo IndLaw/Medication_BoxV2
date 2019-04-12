@@ -27,11 +27,11 @@ public class FireDatabase {
     /********
      * Adds User object to Firestore
      * @param user - User object
-     * @param userUID - userUID to navigate Firestore files
+     * @param email - email to navigate Firestore files
      */
-   public void addUser(User user, String userUID)
+   public void addUser(User user, String email)
    {
-        mFirestore.collection("Users").document(userUID).set(user);
+        mFirestore.collection("Users").document(email).set(user);
    }
 
     /****
@@ -39,9 +39,9 @@ public class FireDatabase {
      * @return user
      */
 
-   public User retrieveUser(String userUID)
+   public User retrieveUser(String email)
    {
-       DocumentReference docRef = mFirestore.collection("Users").document(userUID);
+       DocumentReference docRef = mFirestore.collection("Users").document(email);
        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
            @Override
            public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -57,14 +57,14 @@ public class FireDatabase {
      *  This method adds new information about the User onto the Firebase Database. If the
      *  field name already exists, it will update the value.
      *
-     * @param userUID - Document that stores user information of specific user
+     * @param email - Document that stores user information of specific user
      * @param field - Name of category (like Address)
      * @param value - Value of the category
      */
 
-    public void addToCollection(String userUID, String field, String value )
+    public void addToCollection(String email, String field, String value )
     {
-        docRef = mFirestore.collection("Users").document(userUID);
+        docRef = mFirestore.collection("Users").document(email);
         Map<String, Object> update = new HashMap<>();
         update.put(field, value);
 
@@ -75,36 +75,36 @@ public class FireDatabase {
     /*****
      * This method, like the previous, adds information to the database. It adds entire
      * hashmap full of data instead of individually, unlike the previous addToCollection.
-     * @param userUID - To navigate Firestore files
+     * @param email - To navigate Firestore files
      * @param data - Data you want to add, in the form of a Hashmap
      */
 
-    public void addMapToCollection(String userUID, Map data)
+    public void addMapToCollection(String email, Map data)
     {
-        docRef = mFirestore.collection("Users").document(userUID);
+        docRef = mFirestore.collection("Users").document(email);
         docRef.set(data,SetOptions.merge());
     }
 
     /******
      * Updates a specific field. It is mandatory for the field to exist within the database.
-     * @param userUID - Used to find file in Firestore
+     * @param email - Used to find file in Firestore
      * @param field - field in you want to change
      * @param value - value of the field you want to change
      */
-    public void updateField(String userUID, String field, String value)
+    public void updateField(String email, String field, String value)
     {
-        docRef = mFirestore.collection("Users").document(userUID);
+        docRef = mFirestore.collection("Users").document(email);
         docRef.update(field, value);
     }
 
     /****
      *  This method searches through the Firestore files for the specific document you are looking
      *  for and returns it.
-     * @param userUID - Navigate Firebase files
+     * @param email - Navigate Firebase files
      */
-    public void retrieveCollection(String userUID)
+    public void retrieveCollection(String email)
     {
-        docRef = mFirestore.collection("Users").document(userUID);
+        docRef = mFirestore.collection("Users").document(email);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {

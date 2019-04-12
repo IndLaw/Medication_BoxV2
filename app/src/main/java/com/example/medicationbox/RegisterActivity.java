@@ -111,14 +111,12 @@ public class RegisterActivity extends AppCompatActivity {
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                             if (user != null) {
-                                String uid = user.getUid();
                                 Map<String, String> data = new HashMap<>();
                                 data.put("name", tName);
                                 data.put("email", tEmail);
                                 data.put("password", tPassword);
-                                Log.e("login", "uid:" + uid);
 
-                                storage.addMapToCollection(uid, data);
+                                storage.addMapToCollection(tEmail, data);
 
                             }
 
@@ -135,9 +133,9 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    GMailSender gMailSender = new GMailSender("mederx@gmail.com", "1530group");
+                    GMailSender gMailSender = new GMailSender("mederxbox@gmail.com", "1530Group");
                     gMailSender.sendMail("MedEx", "Hello!\n\nThank you for choosing MedEx!\n\nThe MedEx Team",
-                            "mederx@gmail.com", email);
+                            "mederxbox@gmail.com", email);
                     progressDialog.dismiss();
                 } catch (Exception excep) {
                     Log.e("error_log", "Error: " + excep.getMessage());
