@@ -1,27 +1,16 @@
 package com.example.medicationbox;
 
-import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.util.Log;
-
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
-
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
-
-import io.grpc.Context;
 
 
 public class FireDatabase {
