@@ -3,12 +3,12 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
+    android:padding="15dp"
     android:gravity="center">
 
     <LinearLayout
         android:layout_width="355dp"
-        android:layout_height="422dp"
+        android:layout_height="500dp"
         android:orientation="vertical">
 
         <EditText
@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:padding="10dp"
+            android:padding="12dp"
             android:inputType="textPersonName"
             android:hint="Name of Patient" />
 
@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:padding="10dp"
+            android:padding="12dp"
             android:inputType="textPersonName"
             android:hint="Name of Doctor" />
 
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:padding="10dp"
+            android:padding="12dp"
             android:inputType="textPersonName"
             android:hint="Address of Doctor's Office" />
 
@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:padding="10dp"
+            android:padding="12dp"
             android:inputType="textPersonName"
             android:hint="Address of Patient" />
 
@@ -53,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:padding="10dp"
+            android:padding="12dp"
             android:inputType="textPersonName"
             android:hint="Name of Medication" />
 
@@ -62,7 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:padding="10dp"
+            android:padding="12dp"
             android:inputType="textPersonName"
             android:hint="Dosage" />
 
@@ -71,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:padding="10dp"
+            android:padding="12dp"
             android:inputType="number"
             android:hint="Age of Patient" />
 
@@ -79,8 +79,8 @@
             android:id="@+id/refillnum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:padding="10dp"
+            android:ems="11"
+            android:padding="12dp"
             android:inputType="number"
             android:hint="Number of Refills" />
 
