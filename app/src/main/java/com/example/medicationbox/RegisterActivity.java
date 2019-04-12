@@ -1,8 +1,6 @@
 package com.example.medicationbox;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
-import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
 import android.os.Bundle;
@@ -16,7 +14,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserInfo;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -32,7 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference mReference;
     private User user;
-    private FireBaseStorage storage;
+    private FireDatabase storage;
     private Button btnRegister, btnLinkToLogin;
     private ProgressDialog pDialog;
 
@@ -47,7 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mReference = FirebaseDatabase.getInstance()
                 .getReferenceFromUrl("https://medication-box.firebaseio.com");
-        storage = new FireBaseStorage();
+        storage = new FireDatabase();
 
         mCreate = (Button) findViewById(R.id.btnRegister);
         mCreate.setOnClickListener(new View.OnClickListener() {
