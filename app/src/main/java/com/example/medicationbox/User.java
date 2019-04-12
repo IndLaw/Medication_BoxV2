@@ -9,7 +9,7 @@ public class User{
     String userUID;
     Perscription[] perscriptions = new Perscription[10];
     Insurance insurance;
-    int numPercriptions = 0;
+    int numPercriptions;
 
     public User(String name, String email, String userUID, String password)
     {
@@ -17,8 +17,9 @@ public class User{
         this.email = email;
         this.userUID = userUID;
         this.password = password;
+        numPercriptions = 0;
+        perscriptions = new Perscription[10];
 	}
-
 
     public String getPassword() { return password; }
 
