@@ -56,7 +56,7 @@
         android:layout_height="wrap_content"
         android:text="@string/login"
         android:layout_marginTop="20dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/lightBlue"
         android:textColor="@color/white"
         android:id="@+id/btnLogin"/>
 
@@ -68,7 +68,7 @@
         android:background="@null"
         android:text="Register"
         android:textAllCaps="false"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/queenBlue"
         android:textSize="13sp" />
 
     <Button
@@ -79,7 +79,7 @@
         android:background="@null"
         android:text="Forgot Password"
         android:textAllCaps="false"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/queenBlue"
         android:textSize="13sp" />
 
 </LinearLayout>
