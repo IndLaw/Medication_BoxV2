@@ -90,7 +90,7 @@
             android:layout_height="wrap_content"
             android:text="Next"
             android:layout_marginTop="20dp"
-            android:background="@color/colorPrimary"
+            android:background="@color/lightBlue"
             android:textColor="@color/white"/>
 
     </LinearLayout>
