@@ -2,27 +2,24 @@ package com.example.medicationbox;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
-
 import java.util.HashMap;
 import java.util.Map;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
-
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 
 
-public class FireBaseStorage {
+public class FireDatabase {
 
     private FirebaseFirestore mFirestore;
     private DocumentReference docRef;
     private User user = null;
 
-    FireBaseStorage()
+    FireDatabase()
     {
         mFirestore = FirebaseFirestore.getInstance();
     }
@@ -37,8 +34,14 @@ public class FireBaseStorage {
         mFirestore.collection("Users").document(userUID).set(user);
    }
 
-   public User retrieveUser()
+    /****
+     *
+     * @return user
+     */
+
+   public User retrieveUser(String userUID)
    {
+       DocumentReference docRef = mFirestore.collection("Users").document(userUID);
        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
            @Override
            public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -88,7 +91,7 @@ public class FireBaseStorage {
      * @param field - field in you want to change
      * @param value - value of the field you want to change
      */
-    public void updateDocument(String userUID, String field, String value)
+    public void updateField(String userUID, String field, String value)
     {
         docRef = mFirestore.collection("Users").document(userUID);
         docRef.update(field, value);
