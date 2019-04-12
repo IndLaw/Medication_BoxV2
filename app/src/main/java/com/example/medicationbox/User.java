@@ -4,19 +4,26 @@ public class User{
 
     String name;
     String email;
+    String password;
     Payment pmt[] = new Payment[5]; //users can have up to 5 different payments, first is preferred
     String userUID;
     Perscription[] perscriptions = new Perscription[10];
     Insurance insurance;
     int numPercriptions = 0;
 
-    public User(String name, String email, String userUID)
+    public User(String name, String email, String userUID, String password)
     {
         this.name = name;
         this.email = email;
         this.userUID = userUID;
+        this.password = password;
 	}
-	
+
+
+    public String getPassword() { return password; }
+
+    public void setPassword(String password) { this.password = password; }
+
     public String getName() {
         return name;
     }
