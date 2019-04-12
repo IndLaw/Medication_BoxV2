@@ -37,6 +37,8 @@ public class AddCardActivity extends AppCompatActivity {
                 }
                 catch(Exception e){
                     Toast.makeText(getApplicationContext(), "Error parsing expiry date.", Toast.LENGTH_LONG).show();
+                    onClick(view);
+                    return;
                 }
                 Toast.makeText(getApplicationContext(), "Payment successfully added.", Toast.LENGTH_LONG).show();
             }
