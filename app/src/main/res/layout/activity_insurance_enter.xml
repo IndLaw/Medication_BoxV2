@@ -7,8 +7,8 @@
     android:gravity="center">
 
     <LinearLayout
-        android:layout_width="317dp"
-        android:layout_height="451dp"
+        android:layout_width="355dp"
+        android:layout_height="500dp"
         android:orientation="vertical">
 
         <EditText
@@ -16,46 +16,54 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:padding="12dp"
             android:inputType="textPersonName"
-            android:text="Name of Insured" />
+            android:hint="Name of Insured" />
 
         <EditText
             android:id="@+id/ipolicynum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:padding="12dp"
             android:inputType="textPersonName"
-            android:text="Policy Number" />
+            android:hint="Policy Number" />
 
         <EditText
             android:id="@+id/iplanname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:padding="12dp"
             android:inputType="textPersonName"
-            android:text="Name of Plan" />
+            android:hint="Name of Plan" />
 
         <EditText
             android:id="@+id/icopayment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:padding="12dp"
             android:inputType="number"
-            android:text="Copayment" />
+            android:hint="Copayment" />
 
         <EditText
             android:id="@+id/icompanyname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:padding="12dp"
             android:inputType="textPersonName"
-            android:text="Name of Insurance Company" />
+            android:hint="Name of Insurance Company" />
 
         <Button
-            android:id="@+id/insurancenext"
-            android:layout_width="wrap_content"
+            android:id="@+id/nextperscription"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Next" />
+            android:text="Next"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 </LinearLayout>
