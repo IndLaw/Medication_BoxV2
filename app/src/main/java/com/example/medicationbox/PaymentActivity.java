@@ -20,14 +20,14 @@ public class PaymentActivity extends AppCompatActivity {
         Button preferred[] = new Button[4];
 
         j = 0;
-        while(usr.pmt[j] != null){
-            if(j == 0){
+        for(Payment p : usr.pmt){
+            if(p == usr.pmt.get(0)){
                 code[j] = new TextView(this);
-                code[j].setText(usr.pmt[j].getCode() + " PREFERRED");
+                code[j].setText(p.getCode() + " PREFERRED");
             }
             else{
                 code[j] = new TextView(this);
-                code[j].setText(usr.pmt[j].getCode());
+                code[j].setText(p.getCode());
                 preferred[j] = new Button(this);
                 preferred[j].setText("Set as Default Payment");
                 delete[j] = new Button(this);
@@ -38,13 +38,8 @@ public class PaymentActivity extends AppCompatActivity {
 
         findViewById(R.id.addPmt).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                if(usr.pmt[4] != null){
-                    Toast.makeText(getApplicationContext(), "Max number of payment methods reached. Please delete one before adding another.", Toast.LENGTH_LONG).show();
-                }
-                else {
-                    Intent i = new Intent(PaymentActivity.this, AddPmtActivity.class);
-                    startActivity(i);
-                }
+                Intent i = new Intent(PaymentActivity.this, AddPmtActivity.class);
+                startActivity(i);
             }
         });
 
@@ -62,13 +57,13 @@ public class PaymentActivity extends AppCompatActivity {
         while(preferred[j] != null){
             preferred[j].setOnClickListener(new View.OnClickListener(){
                 public void onClick(View view) {
-                    Payment p = usr.pmt[j + 1];
+                    Payment p = usr.pmt.get(j + 1);
 
                     for(int k = j; k >= 0; k--){
-                        usr.pmt[k + 1] = usr.pmt[j];
+                        usr.pmt.set(k + 1, usr.pmt.get(j));
                     }
 
-                    usr.pmt[0] = p;
+                    usr.pmt.set(0, p);
 
                     Toast.makeText(getApplicationContext(), "Your preferred payment method has been updated", Toast.LENGTH_LONG).show();
                 }

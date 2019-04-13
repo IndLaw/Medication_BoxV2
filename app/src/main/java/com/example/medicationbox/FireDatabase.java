@@ -29,29 +29,29 @@ public class FireDatabase {
      * @param user - User object
      * @param email - email to navigate Firestore files
      */
-   public void addUser(User user, String email)
-   {
+    public void addUser(User user, String email)
+    {
         mFirestore.collection("Users").document(email).set(user);
-   }
+    }
 
     /****
      *
      * @return user
      */
 
-   public User retrieveUser(String email)
-   {
-       DocumentReference docRef = mFirestore.collection("Users").document(email);
-       docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-           @Override
-           public void onSuccess(DocumentSnapshot documentSnapshot) {
-               if (documentSnapshot.exists()) {
-                  user = documentSnapshot.toObject(User.class);
-               }
-           }
-       });
-       return user;
-   }
+    public User retrieveUser(String email)
+    {
+        DocumentReference docRef = mFirestore.collection("Users").document(email);
+        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                if (documentSnapshot.exists()) {
+                    user = documentSnapshot.toObject(User.class);
+                }
+            }
+        });
+        return user;
+    }
 
     /************
      *  This method adds new information about the User onto the Firebase Database. If the

@@ -26,9 +26,7 @@ public class AddBankActivity extends AppCompatActivity {
             String name = inputName.getEditableText().toString().trim();
 
             public void onClick(View view) {
-                int i;
-                for(i = 0; usr.pmt[i] != null; i++);
-                usr.pmt[i] = new Bank(Integer.parseInt(routing), Integer.parseInt(accountNo), name);
+                usr.pmt.add(new Bank(Integer.parseInt(routing), Integer.parseInt(accountNo), name));
                 Toast.makeText(getApplicationContext(), "Payment successfully added.", Toast.LENGTH_LONG).show();
             }
         });

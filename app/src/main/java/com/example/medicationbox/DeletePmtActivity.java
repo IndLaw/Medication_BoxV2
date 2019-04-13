@@ -16,20 +16,11 @@ public class DeletePmtActivity extends AppCompatActivity {
 
         prompt = findViewById(R.id.prompt);
 
-        prompt.setText("Are you sure you want to delete " + usr.pmt[i].getCode() + "?");
+        prompt.setText("Are you sure you want to delete " + usr.pmt.get(i).getCode() + "?");
 
         findViewById(R.id.confirm).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                int j = i;
-
-                while(usr.pmt[j] != null){
-                    if(j == usr.pmt.length - 1)
-                        usr.pmt[j] = null;
-                    else usr.pmt[j] = usr.pmt[j + 1];
-
-                    j++;
-                }
-
+                usr.pmt.remove(i);
                 Toast.makeText(getApplicationContext(), "Payment method successfully deleted", Toast.LENGTH_LONG).show();
             }
         });

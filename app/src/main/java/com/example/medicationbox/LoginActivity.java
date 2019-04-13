@@ -9,6 +9,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -169,7 +170,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         if (!email.isEmpty()) {
                             if (Functions.isValidEmailAddress(email)) {
-                                // reset password function
+                                //FireDatabase.retrieveCollection(email);
                                 // resetPassword(email);
                                 dialog.dismiss();
                             } else {
@@ -195,5 +196,25 @@ public class LoginActivity extends AppCompatActivity {
     private void hideDialog() {
         if (pDialog.isShowing())
             pDialog.dismiss();
+    }
+
+    public void sendPassword (final String email, final String password) {
+        final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this);
+        progressDialog.setTitle("Send Email");
+        progressDialog.show();
+        Thread send = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    GMailSender gMailSender = new GMailSender("mederx@gmail.com", "1530group");
+                    gMailSender.sendMail("MedEx", "Your password is: " + password + "\n\nThe MedEx Team",
+                            "mederx@gmail.com", email);
+                    progressDialog.dismiss();
+                } catch (Exception excep) {
+                    Log.e("error_log", "Error: " + excep.getMessage());
+                }
+            }
+        });
+        send.start();
     }
 }
