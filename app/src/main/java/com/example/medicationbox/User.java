@@ -10,19 +10,18 @@ public class User{
     private String email;
     public ArrayList<Payment> pmt = new ArrayList<>();
     private String userUID;
-    private ArrayList<Perscription> perscriptions = new ArrayList<>();
+    private ArrayList<Perscription> perscriptions;
     private Insurance insurance;
     private ArrayList<Box> shipments = new ArrayList<>();
-    HashMap<String, Bitmap> pictures;
+    private String password;
+    private HashMap<String, Bitmap> pictures;
 
-    public User(String name, String email, String userUID, String password)
+    public User(String name, String email, String userUID)
     {
         this.name = name;
         this.email = email;
         this.userUID = userUID;
-        this.password = password;
-        this.numPercriptions = 0;
-        this.perscriptions = new Perscription[10];
+        this.perscriptions = new ArrayList<>();
         this.pictures = new HashMap<String, Bitmap>();
 	}
 
