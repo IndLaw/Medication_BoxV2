@@ -15,13 +15,18 @@
 
 
         <Button
+            android:id="@+id/addPmt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add Payment"
             android:layout_marginTop="20dp"
             android:background="@color/lightBlue"
+<<<<<<< HEAD
+            android:text="Add Payment"
+            android:textColor="@color/white" />
+=======
             android:textColor="@color/white"
             android:id="@+id/addPmt"/>
+>>>>>>> 720df04289ed5eb812c740b02e896849871c2304
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
