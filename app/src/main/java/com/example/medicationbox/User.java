@@ -1,14 +1,16 @@
 package com.example.medicationbox;
 
+import java.util.ArrayList;
+
 public class User{
 
-    String name;
-    String email;
-    Payment pmt[] = new Payment[5]; //users can have up to 5 different payments, first is preferred
-    String userUID;
-    Perscription[] perscriptions = new Perscription[10];
-    Insurance insurance;
-    int numPercriptions = 0;
+    private String name;
+    private String email;
+    public ArrayList<Payment> pmt = new ArrayList<>();
+    private String userUID;
+    private ArrayList<Perscription> perscriptions = new ArrayList<>();
+    private Insurance insurance;
+    private ArrayList<Box> shipments = new ArrayList<>();
 
     public User(String name, String email, String userUID)
     {
@@ -25,39 +27,20 @@ public class User{
 
     public String getUID() { return userUID; }
 
-    public Perscription[] getAllPerscriptions() {
-        return perscriptions;
-    }
-
     public Perscription getPerscription(String medName) {
-        String arrayMedName = "";
-        for (int i = 0; perscriptions[i] != null; i++) {
-            arrayMedName = perscriptions[i].getMedName();
-            if (arrayMedName.equals(medName)) {
-                return perscriptions[i];
+        for (Perscription p : perscriptions) {
+            if (medName.equals(p.getMedName())) {
+                return p;
             }
         }
         return null;
     }
 
     public void addPerscription(Perscription perscription) {
-        perscriptions[numPercriptions] = perscription;
-        numPercriptions++;
+        perscriptions.add(perscription);
     }
 
-    public Perscription removePerscription(String medName) {
-        String arrayMedName = "";
-        for (int i = 0; perscriptions[i] != null; i++) {
-            arrayMedName = perscriptions[i].getMedName();
-            if (arrayMedName.equals(medName)) {
-                Perscription per = perscriptions[i];
-                for(int k = i; k < numPercriptions; k++) {
-                    perscriptions[k] = perscriptions[k + 1];
-                }
-                numPercriptions--;
-                return per;
-            }
-        }
-        return null;
+    public boolean removePerscription(String medName) {
+        return perscriptions.remove(medName);
     }
 }
