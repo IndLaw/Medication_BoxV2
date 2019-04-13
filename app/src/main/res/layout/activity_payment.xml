@@ -13,7 +13,6 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="42dp">
 
-
         <Button
             android:id="@+id/addPmt"
             android:layout_width="match_parent"
@@ -22,6 +21,5 @@
             android:background="@color/lightBlue"
             android:text="Add Payment"
             android:textColor="@color/white" />
-
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
