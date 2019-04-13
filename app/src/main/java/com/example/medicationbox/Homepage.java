@@ -16,6 +16,7 @@ public class Homepage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
 
+
         Button box, doc, pay;
 
         box = findViewById(R.id.gotobox);
@@ -25,7 +26,7 @@ public class Homepage extends AppCompatActivity {
         box.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-       //         Intent tobox = new Intent(Homepage.this, .class);
+        //       Intent tobox = new Intent(Homepage.this, .class);
         //        startActivity(tobox);
             }
         });
