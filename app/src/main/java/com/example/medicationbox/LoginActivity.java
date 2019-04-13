@@ -187,8 +187,6 @@ public class LoginActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-
-
     private void showDialog() {
         if (!pDialog.isShowing())
             pDialog.show();

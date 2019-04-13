@@ -1,79 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    android:gravity="center">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="355dp"
+        android:layout_height="500dp"
         android:gravity="center"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="42dp">
+        android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="20dp"
-            android:text="Card Number"/>
+            android:textColor="@color/queenBlue"
+            android:text="Please Enter Your Credit Card Information"/>
 
         <EditText
             android:id="@+id/number"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:padding="12dp"
+            android:hint="Card Number"
             android:inputType="number" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="20dp"
-            android:text="Cardholder's Name"/>
 
         <EditText
             android:id="@+id/cardholder"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:padding="12dp"
+            android:hint="Cardholder's Name"
             android:inputType="textPersonName" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="20dp"
-            android:text="Expiration Date"/>
 
         <EditText
             android:id="@+id/expiry"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:padding="12dp"
+            android:hint="Expiration Date"
             android:inputType="date" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="20dp"
-            android:text="CSV"/>
 
         <EditText
             android:id="@+id/csv"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:padding="12dp"
+            android:hint="CSV"
             android:inputType="number" />
 
         <Button
             android:id="@+id/confirm"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add Card" />
+            android:text="Add Card"
+            android:layout_marginTop="20dp"
+            android:background="@color/lightBlue"
+            android:textColor="@color/white"/>/>
 
     </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

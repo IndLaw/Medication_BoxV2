@@ -19,6 +19,7 @@ public class PerscriptionView extends AppCompatActivity {
     private EditText numrefills;
     private EditText medicationname;
     private EditText dosedescription;
+    private EditText quantity;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class PerscriptionView extends AppCompatActivity {
         numrefills = findViewById(R.id.refillnum);
         medicationname = findViewById(R.id.medsname);
         dosedescription = findViewById(R.id.perscripdose);
+        quantity = findViewById(R.id.perquantity);
 
         perscriptionNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,13 +50,10 @@ public class PerscriptionView extends AppCompatActivity {
                 String rNum1 = numrefills.getText().toString();
                 int rNum = Integer.parseInt(rNum1);
                 String pdose = dosedescription.getText().toString();
+                String pquantity = quantity.getText().toString();
 
-                Perscription perscrip = new Perscription(dName, pName, pAge, dAddress, pAddress, mName, rNum, pdose);
+                Perscription perscrip = new Perscription(dName, pName, pAge, dAddress, pAddress, mName, rNum, pdose, pquantity);
             }
         });
     }
-
-
-
-
 }

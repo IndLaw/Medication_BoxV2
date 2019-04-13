@@ -1,6 +1,8 @@
 package com.example.medicationbox;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import android.graphics.Bitmap;
 
 public class User{
 
@@ -11,19 +13,28 @@ public class User{
     private ArrayList<Perscription> perscriptions = new ArrayList<>();
     private Insurance insurance;
     private ArrayList<Box> shipments = new ArrayList<>();
+    HashMap<String, Bitmap> pictures;
 
-    public User(String name, String email, String userUID)
+    public User(String name, String email, String userUID, String password)
     {
         this.name = name;
         this.email = email;
         this.userUID = userUID;
+        this.password = password;
+        this.numPercriptions = 0;
+        this.perscriptions = new Perscription[10];
+        this.pictures = new HashMap<String, Bitmap>();
 	}
-	
+
+    public String getPassword() { return password; }
+
+    public void setPassword(String password) { this.password = password; }
+
     public String getName() {
         return name;
     }
 
-    public String getEmail() { return email;}
+    public String getEmail() { return email; }
 
     public String getUID() { return userUID; }
 
@@ -42,5 +53,31 @@ public class User{
 
     public boolean removePerscription(String medName) {
         return perscriptions.remove(medName);
+    }
+
+    public HashMap<String, Bitmap> getPictures() {
+        return pictures;
+    }
+
+    public void setPictures(HashMap<String, Bitmap> pictures) {
+        this.pictures = pictures;
+    }
+
+    public Bitmap addPicture(String picID, Bitmap picture) {
+        pictures.put(picID, picture);
+        return pictures.get(picID);
+    }
+
+    public Bitmap getPicture(String picID) {
+        return pictures.get(picID);
+    }
+
+    public Bitmap removePicture(String picID) {
+        return pictures.remove(picID);
+    }
+
+    public Bitmap changePicture(String picID, Bitmap picture) {
+        pictures.put(picID, picture);
+        return pictures.get(picID);
     }
 }
