@@ -113,7 +113,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                             if (fireUser != null) {
                                 String uid = fireUser.getUid();
-
+                                //
                                 user = new User(tName, tEmail, tPassword, uid);
                                 storage.addUser(user, tEmail);
                             }
