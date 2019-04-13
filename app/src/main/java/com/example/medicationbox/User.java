@@ -16,10 +16,11 @@ public class User{
     private String password;
     private HashMap<String, Bitmap> pictures;
 
-    public User(String name, String email, String userUID)
+    public User(String name, String email, String password, String userUID)
     {
         this.name = name;
         this.email = email;
+        this.password = password;
         this.userUID = userUID;
         this.perscriptions = new ArrayList<>();
         this.pictures = new HashMap<String, Bitmap>();

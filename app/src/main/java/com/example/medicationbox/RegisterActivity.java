@@ -109,18 +109,13 @@ public class RegisterActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.e("login", "createUserWithEmail:success");
-                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                            FirebaseUser fireUser = FirebaseAuth.getInstance().getCurrentUser();
 
-                            if (user != null) {
-                                String uid = user.getUid();
-                                Map<String, String> data = new HashMap<>();
-                                data.put("name", tName);
-                                data.put("email", tEmail);
-                                data.put("password", tPassword);
-                                Log.e("login", "uid:" + uid);
+                            if (fireUser != null) {
+                                String uid = fireUser.getUid();
 
-                                // add user to database
-                                storage.addMapToCollection(uid, data);
+                                user = new User(tName, tEmail, tPassword, uid);
+                                storage.addUser(user, tEmail);
                             }
 
                         }
