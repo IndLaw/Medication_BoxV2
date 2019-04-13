@@ -10,9 +10,9 @@ public class User{
     private String email;
     public ArrayList<Payment> pmt = new ArrayList<>();
     private String userUID;
-    private ArrayList<Perscription> perscriptions;
+    public ArrayList<Perscription> perscriptions;
     private Insurance insurance;
-    private ArrayList<Box> shipments = new ArrayList<>();
+    public ArrayList<Box> shipments = new ArrayList<>();
     private String password;
     private HashMap<String, Bitmap> pictures;
 
