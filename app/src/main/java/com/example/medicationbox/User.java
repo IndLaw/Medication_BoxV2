@@ -1,28 +1,27 @@
 package com.example.medicationbox;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import android.graphics.Bitmap;
 
 public class User{
 
-    String name;
-    String email;
-    String password;
-    Payment pmt[] = new Payment[5]; //users can have up to 5 different payments, first is preferred
-    String userUID;
-    Perscription[] perscriptions = new Perscription[10];
-    Insurance insurance;
-    int numPercriptions;
-    HashMap<String, Bitmap> pictures;
+    private String name;
+    private String email;
+    public ArrayList<Payment> pmt = new ArrayList<>();
+    private String userUID;
+    private ArrayList<Perscription> perscriptions;
+    private Insurance insurance;
+    private ArrayList<Box> shipments = new ArrayList<>();
+    private String password;
+    private HashMap<String, Bitmap> pictures;
 
-    public User(String name, String email, String userUID, String password)
+    public User(String name, String email, String userUID)
     {
         this.name = name;
         this.email = email;
         this.userUID = userUID;
-        this.password = password;
-        this.numPercriptions = 0;
-        this.perscriptions = new Perscription[10];
+        this.perscriptions = new ArrayList<>();
         this.pictures = new HashMap<String, Bitmap>();
 	}
 
@@ -38,40 +37,21 @@ public class User{
 
     public String getUID() { return userUID; }
 
-    public Perscription[] getAllPerscriptions() {
-        return perscriptions;
-    }
-
     public Perscription getPerscription(String medName) {
-        String arrayMedName = "";
-        for (int i = 0; perscriptions[i] != null; i++) {
-            arrayMedName = perscriptions[i].getMedName();
-            if (arrayMedName.equals(medName)) {
-                return perscriptions[i];
+        for (Perscription p : perscriptions) {
+            if (medName.equals(p.getMedName())) {
+                return p;
             }
         }
         return null;
     }
 
     public void addPerscription(Perscription perscription) {
-        perscriptions[numPercriptions] = perscription;
-        numPercriptions++;
+        perscriptions.add(perscription);
     }
 
-    public Perscription removePerscription(String medName) {
-        String arrayMedName = "";
-        for (int i = 0; perscriptions[i] != null; i++) {
-            arrayMedName = perscriptions[i].getMedName();
-            if (arrayMedName.equals(medName)) {
-                Perscription per = perscriptions[i];
-                for(int k = i; k < numPercriptions; k++) {
-                    perscriptions[k] = perscriptions[k + 1];
-                }
-                numPercriptions--;
-                return per;
-            }
-        }
-        return null;
+    public boolean removePerscription(String medName) {
+        return perscriptions.remove(medName);
     }
 
     public HashMap<String, Bitmap> getPictures() {
