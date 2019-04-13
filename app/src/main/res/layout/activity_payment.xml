@@ -21,7 +21,7 @@
             android:layout_marginTop="20dp"
             android:background="@color/lightBlue"
             android:textColor="@color/white"
-            android:id="@+id/btnLogin"/>
+            android:id="@+id/addPmt"/>
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

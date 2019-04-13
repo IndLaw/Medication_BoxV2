@@ -30,10 +30,8 @@ public class AddCardActivity extends AppCompatActivity {
             String csv = inputCsv.getEditableText().toString().trim();
 
             public void onClick(View view) {
-                int i;
-                for(i = 0; usr.pmt[i] != null; i++);
                 try {
-                    usr.pmt[i] = new Card(Integer.parseInt(number), cardholder, new SimpleDateFormat("MM,yy").parse(expiry), Integer.parseInt(csv));
+                    usr.pmt.add(new Card(Integer.parseInt(number), cardholder, new SimpleDateFormat("MM,yy").parse(expiry), Integer.parseInt(csv)));
                 }
                 catch(Exception e){
                     Toast.makeText(getApplicationContext(), "Error parsing expiry date.", Toast.LENGTH_LONG).show();
