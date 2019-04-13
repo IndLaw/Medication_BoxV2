@@ -67,13 +67,13 @@
             android:hint="Name of Insurance Company" />
 
         <Button
-            android:id="@+id/nextperscription"
+            android:id="@+id/insurancenext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Next"
             android:layout_marginTop="20dp"
-            android:background="@color/lightBlue"
-            android:textColor="@color/white"/>
+            android:background="@color/colorPrimary"
+            android:text="Next"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 </LinearLayout>
