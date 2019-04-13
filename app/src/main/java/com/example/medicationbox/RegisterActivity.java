@@ -118,8 +118,8 @@ public class RegisterActivity extends AppCompatActivity {
                                 data.put("password", tPassword);
                                 Log.e("login", "uid:" + uid);
 
+                                // add user to database
                                 storage.addMapToCollection(uid, data);
-
                             }
 
                         }
