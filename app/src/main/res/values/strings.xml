@@ -21,5 +21,6 @@
     <string name="change_password">Change Password</string>
     <string name="old_password">Old Password</string>
     <string name="new_password">New Password</string>
+    <string name="title_activity_homepage">Homepage</string>
     <!-- Login and Register activity strings (Not all are used) -->
 </resources>
