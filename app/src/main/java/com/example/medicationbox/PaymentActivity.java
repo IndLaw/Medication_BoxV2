@@ -11,9 +11,11 @@ import android.widget.TextView;
 public class PaymentActivity extends AppCompatActivity {
     int j;
 
-    protected void onCreate(Bundle savedInstanceState, final User usr) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
+
+        final User usr = UserSingleton.getInstance().getUser();
 
         TextView code[] = new TextView[5];
         Button delete[] = new Button[4];

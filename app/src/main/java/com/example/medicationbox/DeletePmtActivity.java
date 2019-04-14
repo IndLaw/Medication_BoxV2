@@ -10,9 +10,10 @@ import android.widget.Toast;
 public class DeletePmtActivity extends AppCompatActivity {
     private TextView prompt;
 
-    protected void onCreate(Bundle savedInstanceState, final User usr, final int i) {
+    protected void onCreate(Bundle savedInstanceState, final int i) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deletepayment);
+        final User usr = UserSingleton.getInstance().getUser();
 
         prompt = findViewById(R.id.prompt);
 
