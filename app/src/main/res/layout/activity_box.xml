@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="355dp"
+        android:layout_height="500dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/BoxHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Go Home"
+            android:layout_marginTop="20dp"
+            android:background="@color/lightBlue"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+</LinearLayout>
