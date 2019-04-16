@@ -97,7 +97,6 @@ public class LoginActivity extends AppCompatActivity {
                            Intent i = new Intent(LoginActivity.this, Homepage.class);
                            startActivity(i);
                        }
-
                     } else {
                         Toast.makeText(getApplicationContext(), "Email is not valid!", Toast.LENGTH_SHORT).show();
                     }
