@@ -10,13 +10,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Homepage"
     tools:showIn="@layout/activity_homepage">
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="345dp"
-        android:layout_height="170dp"
-        android:layout_margin="15dp"
-        app:srcCompat="@drawable/medexlogo" />
+    
 
     <ImageView
         android:id="@+id/imageView2"
