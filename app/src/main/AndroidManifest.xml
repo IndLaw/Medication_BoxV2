@@ -20,6 +20,10 @@
             android:label="@string/title_activity_perscrip_upload_choice"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".DocumentView"
+            android:label="MedicationBox"></activity>
+
+
         <activity
             android:name=".insure_upload_choice"
             android:label="@string/title_activity_document_upload_choice"

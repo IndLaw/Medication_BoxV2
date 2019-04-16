@@ -28,7 +28,7 @@ import android.support.annotation.NonNull;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = LoginActivity.class.getSimpleName();
-
+    private boolean success = false;
     private static String KEY_UID = "uid";
     private static String KEY_NAME = "name";
     private static String KEY_EMAIL = "email";
@@ -97,7 +97,6 @@ public class LoginActivity extends AppCompatActivity {
                            Intent i = new Intent(LoginActivity.this, Homepage.class);
                            startActivity(i);
                        }
-
                     } else {
                         Toast.makeText(getApplicationContext(), "Email is not valid!", Toast.LENGTH_SHORT).show();
                     }
@@ -235,8 +234,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private boolean login(String email, String password)
     {
-        boolean success = false;
-
         final FirebaseAuth mAuth = FirebaseAuth.getInstance();
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -246,6 +243,7 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.e("Signin", "signInWithEmail:success");
                             user = mAuth.getCurrentUser();
+                            success = true;
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.e(TAG, "signInWithEmail:failure", task.getException());
@@ -253,10 +251,6 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 });
-        if (user != null)
-        {
-            success = true;
-        }
 
         return success;
     }
