@@ -41,4 +41,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top|start">
+        <Button
+            android:id="@+id/add_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/back_button_selector"
+            android:gravity="center"
+            android:stateListAnimator="@null"
+            android:text="<"
+            android:textSize="25sp"
+            android:elevation="3dp"
+            android:fontFamily="sans-serif"
+            android:textColor="#FFF"
+            tools:ignore="HardcodedText,UnusedAttribute"/>
+    </RelativeLayout>
+
 </RelativeLayout>
