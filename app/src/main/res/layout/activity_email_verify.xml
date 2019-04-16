@@ -16,6 +16,7 @@
         <EditText
             android:layout_width="355dp"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
             android:ems="10"
             android:padding="12dp"
             android:inputType="number"
