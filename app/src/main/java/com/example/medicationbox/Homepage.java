@@ -26,8 +26,8 @@ public class Homepage extends AppCompatActivity {
         box.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-        //       Intent tobox = new Intent(Homepage.this, .class);
-        //        startActivity(tobox);
+               Intent tobox = new Intent(Homepage.this, BoxActivity.class);
+               startActivity(tobox);
             }
         });
 

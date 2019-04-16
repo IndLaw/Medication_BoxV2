@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Box {
-    private ArrayList<Perscription> products;
+    public ArrayList<Perscription> products;
     private Calendar shipmentDate;
     User usr;
 

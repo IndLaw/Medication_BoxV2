@@ -17,15 +17,18 @@
 
         <activity
             android:name=".perscrip_upload_choice"
-            android:label="@string/title_activity_perscrip_upload_choice"/>
+            android:label="@string/title_activity_perscrip_upload_choice"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".insure_upload_choice"
-            android:label="@string/title_activity_document_upload_choice" />
+            android:label="@string/title_activity_document_upload_choice"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".LoginActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" /> <!--gets rid of warning-->
@@ -37,6 +40,7 @@
         <activity
             android:name=".UploadImageActivity"
             android:label="@string/app_name">
+            android:screenOrientation="portrait">
         </activity>
 
         <activity
@@ -48,6 +52,42 @@
 
         <activity
             android:name=".Homepage"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <activity
+            android:name=".AddCardActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <activity
+            android:name=".AddBankActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <activity
+            android:name=".AddPmtActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <activity
+            android:name=".PaymentActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+
+        <activity
+            android:name=".BoxActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
 
@@ -73,6 +113,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".LoginActivity" />
         </activity>
+
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
 
