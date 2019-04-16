@@ -20,7 +20,7 @@
             android:layout_gravity="top|start"
             android:layout_margin="@dimen/fab_margin"
             app:backgroundTint="@color/queenBlue"
-            app:srcCompat="@android:drawable/ic_menu_revert" />
+            app:srcCompat="@android:drawable/ic_menu_revert"/>
 
         <TextView
             android:layout_width="match_parent"

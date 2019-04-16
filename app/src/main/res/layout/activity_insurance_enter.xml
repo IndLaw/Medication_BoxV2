@@ -28,7 +28,7 @@
             android:gravity="center"
             android:padding="20dp"
             android:fontFamily="sans-serif-medium"
-            android:textSize="18dp"
+            android:textSize="16dp"
             android:textColor="@color/queenBlue"
             android:text="Please Enter Your Insurance Information"/>
 
@@ -93,6 +93,4 @@
             android:textColor="@color/white" />
 
     </LinearLayout>
-
-
 </LinearLayout>
