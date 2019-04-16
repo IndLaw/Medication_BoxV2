@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,58 +9,43 @@
 
     <LinearLayout
         android:id="@+id/layout_button"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_alignParentTop="true"
         android:weightSum="2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/btnChoose"
-            android:text="Choose"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/btnUpload"
-            android:text="Upload"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content" />
-
-        <Button
+        <android.support.design.widget.FloatingActionButton
             android:id="@+id/ImageUploadHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Home" />
+            android:layout_gravity="top|start"
+            android:layout_margin="@dimen/fab_margin"
+            app:srcCompat="@android:drawable/ic_menu_revert"
+            app:backgroundTint="@color/queenBlue"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnChoose"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Choose" />
+
+            <Button
+                android:id="@+id/btnUpload"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Upload" />
+
+
+        </LinearLayout>
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imgView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <RelativeLayout
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="top|start">
-        <Button
-            android:id="@+id/add_button"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/back_button_selector"
-            android:gravity="center"
-            android:stateListAnimator="@null"
-            android:text="<"
-            android:textSize="25sp"
-            android:elevation="3dp"
-            android:fontFamily="sans-serif"
-            android:textColor="#FFF"
-            tools:ignore="HardcodedText,UnusedAttribute"/>
-    </RelativeLayout>
 
 </RelativeLayout>
