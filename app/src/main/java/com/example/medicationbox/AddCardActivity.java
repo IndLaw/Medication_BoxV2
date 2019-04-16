@@ -13,7 +13,7 @@ public class AddCardActivity extends AppCompatActivity {
     private Button confirm;
     private EditText inputNumber, inputCardholder, inputExpiry, inputCsv;
 
-    protected void onCreate(Bundle savedInstanceState, final User usr) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addcard);
 
@@ -31,7 +31,7 @@ public class AddCardActivity extends AppCompatActivity {
 
             public void onClick(View view) {
                 try {
-                    usr.pmt.add(new Card(Integer.parseInt(number), cardholder, new SimpleDateFormat("MM,yy").parse(expiry), Integer.parseInt(csv)));
+                    UserSingleton.getInstance().getUser().pmt.add(new Card(Integer.parseInt(number), cardholder, new SimpleDateFormat("MM,yy").parse(expiry), Integer.parseInt(csv)));
                 }
                 catch(Exception e){
                     Toast.makeText(getApplicationContext(), "Error parsing expiry date.", Toast.LENGTH_LONG).show();

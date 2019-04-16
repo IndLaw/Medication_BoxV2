@@ -11,7 +11,7 @@ public class AddBankActivity extends AppCompatActivity {
     private Button confirm;
     private EditText inputRouting, inputAccountNo, inputName;
 
-    protected void onCreate(Bundle savedInstanceState, final User usr) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addbank);
 
@@ -26,7 +26,7 @@ public class AddBankActivity extends AppCompatActivity {
             String name = inputName.getEditableText().toString().trim();
 
             public void onClick(View view) {
-                usr.pmt.add(new Bank(Integer.parseInt(routing), Integer.parseInt(accountNo), name));
+                UserSingleton.getInstance().getUser().pmt.add(new Bank(Integer.parseInt(routing), Integer.parseInt(accountNo), name));
                 Toast.makeText(getApplicationContext(), "Payment successfully added.", Toast.LENGTH_LONG).show();
             }
         });
