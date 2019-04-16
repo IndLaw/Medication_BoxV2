@@ -22,7 +22,6 @@ public class PaymentActivity extends AppCompatActivity {
         Button preferred[] = new Button[4];
         Button home = findViewById(R.id.PaymentHome);
 
-
         home.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent i = new Intent(PaymentActivity.this, Homepage.class);
@@ -60,9 +59,8 @@ public class PaymentActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     usr.pmt.remove(j);
                     Toast.makeText(getApplicationContext(), "Payment method successfully deleted", Toast.LENGTH_LONG).show();
-                    Intent i = new Intent(PaymentActivity.this, PaymentActivity.class);
-                    startActivity(i);
-                    return;
+                    finish();
+                    startActivity(getIntent());
                 }
             });
         }
@@ -80,9 +78,8 @@ public class PaymentActivity extends AppCompatActivity {
                     usr.pmt.set(0, p);
 
                     Toast.makeText(getApplicationContext(), "Your preferred payment method has been updated", Toast.LENGTH_LONG).show();
-                    Intent i = new Intent(PaymentActivity.this, PaymentActivity.class);
-                    startActivity(i);
-                    return;
+                    finish();
+                    startActivity(getIntent());
                 }
             });
         }

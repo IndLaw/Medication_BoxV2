@@ -64,7 +64,9 @@ public class PerscriptionView extends AppCompatActivity {
 
                 Perscription perscrip = new Perscription(dName, pName, pAge, dAddress, pAddress, mName, rNum, pdose, pquantity);
 
-                UserSingleton.getInstance().getUser().addPerscription(perscrip);
+                User usr = UserSingleton.getInstance().getUser();
+                usr.addPerscription(perscrip);
+                usr.shipments.get(usr.shipments.size() - 1).addMed(perscrip);
             }
         });
     }
