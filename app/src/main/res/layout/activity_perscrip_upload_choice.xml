@@ -1,29 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="15dp"
     android:gravity="center">
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/PerscripUploadChoiceHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_menu_revert"
+        app:backgroundTint="@color/queenBlue"/>
+
     <LinearLayout
         android:layout_width="355dp"
-        android:layout_height="300dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
             android:gravity="center"
             android:padding="20dp"
+            android:text="Choose an upload method:"
             android:textColor="@color/queenBlue"
-            android:text="Choose an upload method:" />
+            android:textSize="16dp" />
 
         <Button
             android:id="@+id/toPicPerUpload"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
             android:text="Upload Picture"
             android:layout_marginTop="20dp"
             android:background="@color/lightBlue"
@@ -33,16 +47,11 @@
             android:id="@+id/toManualPerUpload"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
             android:text="Enter Manually"
             android:layout_marginTop="20dp"
             android:background="@color/lightBlue"
             android:textColor="@color/white"/>
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/PerscripUploadChoiceHome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Home" />
 </LinearLayout>

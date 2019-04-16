@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,14 +13,25 @@
         android:gravity="center"
         android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/mederxbox" />
+
+        <Button
+            android:id="@+id/reschedule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Reschedule delivery date" />
+
         <Button
             android:id="@+id/BoxHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add Bank"
+            android:text="Go Home"
             android:layout_marginTop="20dp"
             android:background="@color/lightBlue"
             android:textColor="@color/white"/>
-
     </LinearLayout>
 </LinearLayout>

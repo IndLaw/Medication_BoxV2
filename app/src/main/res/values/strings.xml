@@ -22,5 +22,6 @@
     <string name="old_password">Old Password</string>
     <string name="new_password">New Password</string>
     <string name="title_activity_homepage">Homepage</string>
+    <string name="date_button_set">Reschedule</string>
     <!-- Login and Register activity strings (Not all are used) -->
 </resources>

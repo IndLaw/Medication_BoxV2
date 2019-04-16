@@ -23,6 +23,11 @@
         <activity android:name=".DocumentView"
             android:label="MedicationBox"></activity>
 
+        <activity android:name=".InsuranceView"
+            android:label="MedicationBox"></activity>
+
+        <activity android:name=".PerscriptionView"
+            android:label="MedicationBox"></activity>
 
         <activity
             android:name=".insure_upload_choice"
@@ -44,6 +49,7 @@
 
         <activity
             android:name=".UploadImageActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name">
             android:screenOrientation="portrait">
         </activity>
