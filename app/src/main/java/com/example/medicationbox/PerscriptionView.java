@@ -63,6 +63,8 @@ public class PerscriptionView extends AppCompatActivity {
                 String pquantity = quantity.getText().toString();
 
                 Perscription perscrip = new Perscription(dName, pName, pAge, dAddress, pAddress, mName, rNum, pdose, pquantity);
+
+                UserSingleton.getInstance().getUser().addPerscription(perscrip);
             }
         });
     }

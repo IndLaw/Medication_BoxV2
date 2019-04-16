@@ -47,6 +47,10 @@ public class FireDatabase {
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 if (documentSnapshot.exists()) {
                     user = documentSnapshot.toObject(User.class);
+                    if (user != null)
+                        Log.e("retrieve", "Successful" + user.getName() );
+                    else
+                        Log.e("retrieve", "Failed");
                 }
             }
         });
