@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,107 +9,129 @@
 
     <LinearLayout
         android:layout_width="355dp"
-        android:layout_height="500dp"
+        android:layout_height="641dp"
         android:gravity="center"
         android:orientation="vertical">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/PerscripEnterHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_margin="@dimen/fab_margin"
+            app:backgroundTint="@color/queenBlue"
+            app:srcCompat="@android:drawable/ic_menu_revert" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="16dp"
+            android:textColor="@color/queenBlue"
+            android:text="Please Enter Your Information"/>
 
         <EditText
             android:id="@+id/patientsname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
             android:ems="10"
-            android:padding="12dp"
+            android:hint="Name of Patient"
             android:inputType="textPersonName"
-            android:hint="Name of Patient" />
+            android:padding="12dp" />
 
         <EditText
             android:id="@+id/doctorname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
             android:ems="10"
-            android:padding="12dp"
+            android:hint="Name of Doctor"
             android:inputType="textPersonName"
-            android:hint="Name of Doctor" />
+            android:padding="12dp" />
 
         <EditText
 
             android:id="@+id/doctorsaddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
             android:ems="10"
-            android:padding="12dp"
+            android:hint="Address of Doctor's Office"
             android:inputType="textPersonName"
-            android:hint="Address of Doctor's Office" />
+            android:padding="12dp" />
 
         <EditText
             android:id="@+id/patientsaddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
             android:ems="10"
-            android:padding="12dp"
+            android:hint="Address of Patient"
             android:inputType="textPersonName"
-            android:hint="Address of Patient" />
+            android:padding="12dp" />
 
         <EditText
             android:id="@+id/medsname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
             android:ems="10"
-            android:padding="12dp"
+            android:hint="Name of Medication"
             android:inputType="textPersonName"
-            android:hint="Name of Medication" />
+            android:padding="12dp" />
 
         <EditText
             android:id="@+id/perscripdose"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
             android:ems="10"
-            android:padding="12dp"
+            android:hint="Dosage"
             android:inputType="textPersonName"
-            android:hint="Dosage" />
+            android:padding="12dp" />
 
         <EditText
             android:id="@+id/patientsage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
             android:ems="10"
-            android:padding="12dp"
+            android:hint="Age of Patient"
             android:inputType="number"
-            android:hint="Age of Patient" />
+            android:padding="12dp" />
 
         <EditText
             android:id="@+id/refillnum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
             android:ems="10"
-            android:padding="12dp"
+            android:hint="Number of Refills"
             android:inputType="number"
-            android:hint="Number of Refills" />
+            android:padding="12dp" />
 
         <EditText
             android:id="@+id/perquantity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
             android:ems="10"
-            android:padding="12dp"
+            android:hint="Quantity"
             android:inputType="textPersonName"
-            android:hint="Quantity" />
+            android:padding="12dp" />
 
         <Button
             android:id="@+id/nextperscription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Next"
+            android:fontFamily="sans-serif-black"
             android:layout_marginTop="20dp"
             android:background="@color/lightBlue"
-            android:textColor="@color/white"/>
+            android:text="Next"
+            android:textColor="@color/white" />
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/PerscripEnterHome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Home" />
-
 </LinearLayout>

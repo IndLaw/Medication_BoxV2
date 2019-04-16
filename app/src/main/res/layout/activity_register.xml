@@ -32,6 +32,7 @@
                 android:id="@+id/rName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
                 android:hint="@string/hint_name"
                 android:backgroundTint="@color/queenBlue"
                 android:padding="15dp" />
@@ -48,6 +49,7 @@
                 android:id="@+id/rEditEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
                 android:hint="@string/hint_email"
                 android:backgroundTint="@color/queenBlue"
                 android:inputType="textEmailAddress"
@@ -59,12 +61,14 @@
             android:id="@+id/rTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
             android:layout_marginBottom="10dp">
 
             <EditText
                 android:id="@+id/rEditPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
                 android:hint="@string/hint_password"
                 android:backgroundTint="@color/queenBlue"
                 android:inputType="textPassword"
@@ -77,6 +81,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-black"
             android:background="@color/lightBlue"
             android:text="@string/register"
             android:textColor="@color/white"/>
@@ -87,10 +92,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dip"
             android:background="@null"
+
+            android:padding="20dp"
+            android:fontFamily="sans-serif-medium"
             android:text="@string/btn_link_to_login"
             android:textAllCaps="false"
             android:textColor="@color/queenBlue"
-            android:textSize="15sp" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 </LinearLayout>
