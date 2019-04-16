@@ -24,5 +24,11 @@
             android:layout_height="wrap_content"
             android:text="Add Bank" />
 
+        <Button
+            android:id="@+id/AddPaymentHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Home" />
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

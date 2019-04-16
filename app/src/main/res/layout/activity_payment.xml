@@ -21,5 +21,11 @@
             android:background="@color/lightBlue"
             android:text="Add Payment"
             android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/PaymentHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Home" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

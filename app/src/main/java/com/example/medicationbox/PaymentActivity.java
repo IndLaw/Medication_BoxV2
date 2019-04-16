@@ -20,6 +20,15 @@ public class PaymentActivity extends AppCompatActivity {
         TextView code[] = new TextView[5];
         Button delete[] = new Button[4];
         Button preferred[] = new Button[4];
+        Button home = findViewById(R.id.PaymentHome);
+
+
+        home.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent i = new Intent(PaymentActivity.this, Homepage.class);
+                startActivity(i);
+            }
+        });
 
         j = 0;
         for(Payment p : usr.pmt){

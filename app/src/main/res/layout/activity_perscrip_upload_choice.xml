@@ -39,4 +39,10 @@
             android:textColor="@color/white"/>
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/PerscripUploadChoiceHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Home" />
 </LinearLayout>

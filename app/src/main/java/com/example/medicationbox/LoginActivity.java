@@ -40,6 +40,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private SessionManager session;
 
+    private FirebaseUser user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,6 +90,14 @@ public class LoginActivity extends AppCompatActivity {
                     if (Functions.isValidEmailAddress(email)) {
                         // login user
                         //loginProcess(email, password);
+                       boolean successful = login(email, password);
+
+                       if (successful == true)
+                       {
+                           Intent i = new Intent(LoginActivity.this, Homepage.class);
+                           startActivity(i);
+                       }
+
                     } else {
                         Toast.makeText(getApplicationContext(), "Email is not valid!", Toast.LENGTH_SHORT).show();
                     }
@@ -223,8 +233,10 @@ public class LoginActivity extends AppCompatActivity {
         send.start();
     }
 
-    private void login(String email, String password)
+    private boolean login(String email, String password)
     {
+        boolean success = false;
+
         final FirebaseAuth mAuth = FirebaseAuth.getInstance();
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -232,14 +244,20 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Log.d("Signin", "signInWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
+                            Log.e("Signin", "signInWithEmail:success");
+                            user = mAuth.getCurrentUser();
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
+                            Log.e(TAG, "signInWithEmail:failure", task.getException());
                             Toast.makeText(getApplicationContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+        if (user != null)
+        {
+            success = true;
+        }
+
+        return success;
     }
 }

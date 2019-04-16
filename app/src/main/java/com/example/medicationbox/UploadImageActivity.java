@@ -60,6 +60,15 @@ public class UploadImageActivity extends AppCompatActivity {
         btnChoose = (Button) findViewById(R.id.btnChoose);
         btnUpload = (Button) findViewById(R.id.btnUpload);
         imageView = (ImageView) findViewById(R.id.imgView);
+        Button home = findViewById(R.id.ImageUploadHome);
+
+
+        home.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent i = new Intent(UploadImageActivity.this, Homepage.class);
+                startActivity(i);
+            }
+        });
 
         btnChoose.setOnClickListener(new View.OnClickListener() {
             @Override

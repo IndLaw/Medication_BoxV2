@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +18,18 @@ public class DeletePmtActivity extends AppCompatActivity {
 
         prompt = findViewById(R.id.prompt);
 
+
         prompt.setText("Are you sure you want to delete " + usr.pmt.get(i).getCode() + "?");
+
+        Button home = findViewById(R.id.DeletePaymentHome);
+
+
+        home.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent i = new Intent(DeletePmtActivity.this, Homepage.class);
+                startActivity(i);
+            }
+        });
 
         findViewById(R.id.confirm).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {

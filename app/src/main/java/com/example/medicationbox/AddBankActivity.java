@@ -1,5 +1,6 @@
 package com.example.medicationbox;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -19,6 +20,15 @@ public class AddBankActivity extends AppCompatActivity {
         inputRouting = findViewById(R.id.routing);
         inputAccountNo = findViewById(R.id.accountNo);
         inputName = findViewById(R.id.name);
+        Button home = findViewById(R.id.PaymentHome);
+
+
+        home.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent i = new Intent(AddBankActivity.this, Homepage.class);
+                startActivity(i);
+            }
+        });
 
         confirm.setOnClickListener(new View.OnClickListener() {
             String routing = inputRouting.getEditableText().toString().trim();
