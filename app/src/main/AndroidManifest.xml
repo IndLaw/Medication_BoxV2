@@ -14,9 +14,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+
         <activity
             android:name=".perscrip_upload_choice"
             android:label="@string/title_activity_perscrip_upload_choice"/>
+
         <activity
             android:name=".insure_upload_choice"
             android:label="@string/title_activity_document_upload_choice" />
@@ -25,14 +27,11 @@
             android:name=".LoginActivity"
             android:label="@string/app_name">
 
-<<<<<<< HEAD
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" /> <!--gets rid of warning-->
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-=======
->>>>>>> 9da66ef92da67a51abba28cd1435bc39f3429028
         </activity>
 
         <activity
@@ -42,6 +41,13 @@
 
         <activity
             android:name="MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <activity
+            android:name=".Homepage"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
 
