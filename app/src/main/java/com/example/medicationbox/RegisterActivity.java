@@ -92,6 +92,9 @@ public class RegisterActivity extends AppCompatActivity {
                 Log.e("PASSWORD", "User password is " + password);
 
                 sendConf(email, password);
+
+                Intent tohome = new Intent(RegisterActivity.this, Homepage.class);
+                startActivity(tohome);
             }
         });
     }
