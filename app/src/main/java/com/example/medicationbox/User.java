@@ -8,11 +8,11 @@ public class User{
 
     private String name;
     private String email;
-    public ArrayList<Payment> pmt = new ArrayList<>();
+    public ArrayList<Payment> pmt;
     private String userUID;
     public ArrayList<Perscription> perscriptions;
     private Insurance insurance;
-    public ArrayList<Box> shipments = new ArrayList<>();
+    public ArrayList<Box> shipments;
     private String password;
     private HashMap<String, Bitmap> pictures;
 
@@ -26,6 +26,8 @@ public class User{
         this.userUID = userUID;
         this.perscriptions = new ArrayList<>();
         this.pictures = new HashMap<String, Bitmap>();
+        pmt = new ArrayList<>();
+        shipments = new ArrayList<>();
 	}
 
     public String getPassword() { return password; }
