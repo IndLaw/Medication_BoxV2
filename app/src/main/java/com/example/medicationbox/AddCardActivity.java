@@ -1,5 +1,6 @@
 package com.example.medicationbox;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -22,6 +23,15 @@ public class AddCardActivity extends AppCompatActivity {
         inputCardholder = findViewById(R.id.cardholder);
         inputExpiry = findViewById(R.id.expiry);
         inputCsv = findViewById(R.id.csv);
+        Button home = findViewById(R.id.PaymentHome);
+
+
+        home.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent i = new Intent(AddCardActivity.this, Homepage.class);
+                startActivity(i);
+            }
+        });
 
         confirm.setOnClickListener(new View.OnClickListener() {
             String number = inputNumber.getEditableText().toString().trim();

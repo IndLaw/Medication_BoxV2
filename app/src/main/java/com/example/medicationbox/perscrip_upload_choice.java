@@ -18,6 +18,14 @@ public class perscrip_upload_choice extends Activity {
 
         toThePerscripPic = findViewById(R.id.toinsurancecard);
         toThePerscripManual = findViewById(R.id.toperscription);
+        Button home = findViewById(R.id.PerscripUploadChoiceHome);
+
+        home.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent i = new Intent(perscrip_upload_choice.this, Homepage.class);
+                startActivity(i);
+            }
+        });
 
         toThePerscripManual.setOnClickListener(new View.OnClickListener() {
             @Override

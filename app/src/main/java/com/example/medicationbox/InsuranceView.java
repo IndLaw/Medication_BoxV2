@@ -1,5 +1,6 @@
 package com.example.medicationbox;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
@@ -28,6 +29,15 @@ public class InsuranceView extends AppCompatActivity {
         iplanname = findViewById(R.id.iplanname);
         icopayment = findViewById(R.id.icopayment);
         icompanyname = findViewById(R.id.icompanyname);
+        Button home = findViewById(R.id.InsuranceEnterHome);
+
+
+        home.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent i = new Intent(InsuranceView.this, Homepage.class);
+                startActivity(i);
+            }
+        });
 
         nextinsurancebutton.setOnClickListener(new View.OnClickListener() {
             @Override

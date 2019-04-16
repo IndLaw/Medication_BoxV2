@@ -1,5 +1,6 @@
 package com.example.medicationbox;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
@@ -36,6 +37,15 @@ public class PerscriptionView extends AppCompatActivity {
         medicationname = findViewById(R.id.medsname);
         dosedescription = findViewById(R.id.perscripdose);
         quantity = findViewById(R.id.perquantity);
+        Button home = findViewById(R.id.PerscripEnterHome);
+
+
+        home.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent i = new Intent(PerscriptionView.this, Homepage.class);
+                startActivity(i);
+            }
+        });
 
         perscriptionNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +63,8 @@ public class PerscriptionView extends AppCompatActivity {
                 String pquantity = quantity.getText().toString();
 
                 Perscription perscrip = new Perscription(dName, pName, pAge, dAddress, pAddress, mName, rNum, pdose, pquantity);
+
+                UserSingleton.getInstance().getUser().addPerscription(perscrip);
             }
         });
     }

@@ -116,6 +116,9 @@ public class RegisterActivity extends AppCompatActivity {
                                 //
                                 user = new User(tName, tEmail, tPassword, uid);
                                 storage.addUser(user, tEmail);
+
+                                User eyyy = storage.retrieveUser(tEmail);
+                                Log.e("Retrieved name", "Retrieved name: " + eyyy.getName());
                             }
 
                         }

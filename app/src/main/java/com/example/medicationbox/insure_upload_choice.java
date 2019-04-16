@@ -15,6 +15,14 @@ public class insure_upload_choice extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insure_upload_choice);
+        Button home = findViewById(R.id.InsureUploadChoiceHome);
+
+        home.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent i = new Intent(insure_upload_choice.this, Homepage.class);
+                startActivity(i);
+            }
+        });
 
         toTheInsurePic = findViewById(R.id.toinsurancecard);
         toTheInsureManual = findViewById(R.id.toperscription);

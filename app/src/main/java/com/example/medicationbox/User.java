@@ -16,6 +16,8 @@ public class User{
     private String password;
     private HashMap<String, Bitmap> pictures;
 
+    public User(){}
+
     public User(String name, String email, String password, String userUID)
     {
         this.name = name;

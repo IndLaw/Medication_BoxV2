@@ -17,6 +17,15 @@ public class DocumentView extends AppCompatActivity {
 
         toTheInsuranceCardChoice = findViewById(R.id.toinsurancecard);
         toThePerscriptionChoice = findViewById(R.id.toperscription);
+        Button home = findViewById(R.id.AddDocChoiceHome);
+
+
+        home.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent i = new Intent(DocumentView.this, Homepage.class);
+                startActivity(i);
+            }
+        });
 
         toTheInsuranceCardChoice.setOnClickListener(new View.OnClickListener() {
             @Override
