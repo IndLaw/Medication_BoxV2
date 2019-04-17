@@ -25,7 +25,6 @@ public class AddCardActivity extends AppCompatActivity {
         inputCsv = findViewById(R.id.csv);
         Button home = findViewById(R.id.PaymentHome);
 
-
         home.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent i = new Intent(AddCardActivity.this, Homepage.class);

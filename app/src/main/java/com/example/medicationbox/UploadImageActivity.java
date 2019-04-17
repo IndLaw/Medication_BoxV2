@@ -59,7 +59,7 @@ public class UploadImageActivity extends AppCompatActivity {
         //Initialize Views
         btnChoose = (Button) findViewById(R.id.btnChoose);
         btnUpload = (Button) findViewById(R.id.btnUpload);
-        imageView = (ImageView) findViewById(R.id.imgView);
+        //imageView = (ImageView) findViewById(R.id.imgView);
         Button home = findViewById(R.id.ImageUploadHome);
 
 
