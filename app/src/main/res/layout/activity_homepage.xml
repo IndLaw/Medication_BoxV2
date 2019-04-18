@@ -22,8 +22,9 @@
 
     <include
         layout="@layout/content_homepage"
-        android:layout_height="754dp"
-        android:layout_width="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -38,6 +39,9 @@
         android:id="@+id/logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:background="@color/lightBlue"
+        android:textColor="@color/white"
         android:text="Logout" />
 
 </android.support.design.widget.CoordinatorLayout>
