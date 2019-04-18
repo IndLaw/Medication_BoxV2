@@ -38,6 +38,8 @@ public class AddBankActivity extends AppCompatActivity {
             public void onClick(View view) {
                 UserSingleton.getInstance().getUser().pmt.add(new Bank(Integer.parseInt(routing), Integer.parseInt(accountNo), name));
                 Toast.makeText(getApplicationContext(), "Payment successfully added.", Toast.LENGTH_LONG).show();
+                Intent i = new Intent(AddBankActivity.this, PaymentActivity.class);
+                startActivity(i);
             }
         });
     }

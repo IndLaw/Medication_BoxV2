@@ -17,11 +17,12 @@ public class Homepage extends AppCompatActivity {
         setContentView(R.layout.activity_homepage);
 
 
-        Button box, doc, pay;
+        Button box, doc, pay, logout;
 
         box = findViewById(R.id.gotobox);
         doc = findViewById(R.id.uploadDoc);
         pay = findViewById(R.id.topayments);
+        logout = findViewById(R.id.logout);
 
         box.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +45,14 @@ public class Homepage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent topay = new Intent(Homepage.this, PaymentActivity.class);
                 startActivity(topay);
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent tologout = new Intent(Homepage.this, LoginActivity.class);
+                startActivity(tologout);
             }
         });
     }

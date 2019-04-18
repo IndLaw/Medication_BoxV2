@@ -48,6 +48,8 @@ public class AddCardActivity extends AppCompatActivity {
                     return;
                 }
                 Toast.makeText(getApplicationContext(), "Payment successfully added.", Toast.LENGTH_LONG).show();
+                Intent i = new Intent(AddCardActivity.this, PaymentActivity.class);
+                startActivity(i);
             }
         });
     }
