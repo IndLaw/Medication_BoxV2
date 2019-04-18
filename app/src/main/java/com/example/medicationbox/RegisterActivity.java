@@ -70,7 +70,6 @@ public class RegisterActivity extends AppCompatActivity {
                 mPassword = findViewById(R.id.rEditPassword);
                 EditText mName = findViewById(R.id.rName);
 
-
                 String email = mEmail.getText().toString();
                 String password = mPassword.getText().toString();
                 String name = mName.getText().toString();
@@ -107,6 +106,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         user = new User(tName, tEmail, tPassword, "User 1");
         UserSingleton.getInstance().setUser(user);
+        Toast.makeText(getApplicationContext(), "Created account!", Toast.LENGTH_SHORT).show();
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -115,14 +115,15 @@ public class RegisterActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.e("login", "createUserWithEmail:success");
                             FirebaseUser fireUser = FirebaseAuth.getInstance().getCurrentUser();
-
+                            Toast.makeText(getApplicationContext(), "Create account", Toast.LENGTH_SHORT).show();
                             if (fireUser != null) {
+                                Toast.makeText(getApplicationContext(), "FireUser is not null", Toast.LENGTH_SHORT).show();
                                 String uid = fireUser.getUid();
                                 //
                                 user = new User(tName, tEmail, tPassword, uid);
                                 storage.addUser(user, tEmail);
                                 UserSingleton.getInstance().setUser(user);
-
+                                Toast.makeText(getApplicationContext(), "User is " + UserSingleton.getInstance().getUser(), Toast.LENGTH_SHORT).show();
                                 User eyyy = storage.retrieveUser(tEmail);
                                 Log.e("Retrieved name", "Retrieved name: " + eyyy.getName());
                             }

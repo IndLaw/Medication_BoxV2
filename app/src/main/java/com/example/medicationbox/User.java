@@ -12,7 +12,7 @@ public class User{
     private String userUID;
     public ArrayList<Perscription> perscriptions;
     private Insurance insurance;
-    private ArrayList<Box> shipments;
+    public ArrayList<Box> shipments;
     private String password;
     private HashMap<String, Bitmap> pictures;
 
@@ -26,8 +26,8 @@ public class User{
         this.userUID = userUID;
         this.perscriptions = new ArrayList<>();
         this.pictures = new HashMap<String, Bitmap>();
-        pmt = new ArrayList<>();
-        shipments = new ArrayList<>();
+        this.shipments = new ArrayList<>();
+        this.pmt = new ArrayList<>();
         shipments.add(new Box(0));
 
         for( Perscription p : perscriptions){
@@ -96,9 +96,5 @@ public class User{
     public Bitmap changePicture(String picID, Bitmap picture) {
         pictures.put(picID, picture);
         return pictures.get(picID);
-    }
-
-    public Box getShipments(int i){
-        return shipments.get(i);
     }
 }

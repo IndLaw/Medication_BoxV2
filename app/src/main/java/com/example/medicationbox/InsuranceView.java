@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -29,7 +30,7 @@ public class InsuranceView extends AppCompatActivity {
         iplanname = findViewById(R.id.iplanname);
         icopayment = findViewById(R.id.icopayment);
         icompanyname = findViewById(R.id.icompanyname);
-        Button home = findViewById(R.id.InsuranceEnterHome);
+        FloatingActionButton home = findViewById(R.id.InsuranceEnterHome);
 
 
         home.setOnClickListener(new View.OnClickListener() {
