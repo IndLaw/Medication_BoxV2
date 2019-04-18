@@ -87,10 +87,10 @@
             android:id="@+id/perscripdose"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
             android:ems="10"
+            android:fontFamily="sans-serif-light"
             android:hint="Dosage"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:padding="12dp" />
 
         <EditText
@@ -117,10 +117,10 @@
             android:id="@+id/perquantity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
             android:ems="10"
+            android:fontFamily="sans-serif-light"
             android:hint="Quantity"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:padding="12dp" />
 
         <Button
