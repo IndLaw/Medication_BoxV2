@@ -17,7 +17,6 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="20dp"
-
             android:textSize="18dp"
             android:text="Please Enter Your Credit Card Information" />
 
@@ -74,7 +73,7 @@
             android:id="@+id/AddCardHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Home" />/>
+            android:text="Home" />
 
     </LinearLayout>
 </LinearLayout>
