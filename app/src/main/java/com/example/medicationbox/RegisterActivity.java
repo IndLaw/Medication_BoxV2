@@ -119,6 +119,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 //
                                 user = new User(tName, tEmail, tPassword, uid);
                                 storage.addUser(user, tEmail);
+                                UserSingleton.getInstance().setUser(user);
 
                                 User eyyy = storage.retrieveUser(tEmail);
                                 Log.e("Retrieved name", "Retrieved name: " + eyyy.getName());
@@ -127,6 +128,7 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 });
+
     }
 
     public void sendConf (final String email, final String password) {
