@@ -181,7 +181,7 @@ public class UploadImageActivity extends AppCompatActivity {
 
     public static Bitmap rotateImage(Bitmap source) {
         Matrix matrix = new Matrix();
-        matrix.postRotate(270);
+        matrix.postRotate(90);
         return Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(),
                 matrix, true);
     }

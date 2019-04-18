@@ -74,9 +74,6 @@ public class RegisterActivityTemp extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Please enter your details!", Toast.LENGTH_LONG).show();
                 }
 
-
-
-
             }
 
         });
