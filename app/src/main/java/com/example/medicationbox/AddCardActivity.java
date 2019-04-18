@@ -23,7 +23,7 @@ public class AddCardActivity extends AppCompatActivity {
         inputCardholder = findViewById(R.id.cardholder);
         inputExpiry = findViewById(R.id.expiry);
         inputCsv = findViewById(R.id.csv);
-        Button home = findViewById(R.id.PaymentHome);
+        Button home = findViewById(R.id.AddCardHome);
 
         home.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
