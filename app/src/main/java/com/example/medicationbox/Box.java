@@ -22,8 +22,8 @@ public class Box {
         products.add(p);
     }
 
-    public void removeMed(Perscription p){
-        products.remove(p);
+    public Perscription removeMed(int i){
+        return products.remove(i);
     }
 
     public void changeDate(Calendar c){

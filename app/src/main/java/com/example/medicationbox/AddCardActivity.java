@@ -33,23 +33,21 @@ public class AddCardActivity extends AppCompatActivity {
         });
 
         confirm.setOnClickListener(new View.OnClickListener() {
-            String number = inputNumber.getEditableText().toString().trim();
-            String cardholder = inputCardholder.getEditableText().toString().trim();
-            String expiry = inputExpiry.getEditableText().toString().trim();
-            String csv = inputCsv.getEditableText().toString().trim();
-
             public void onClick(View view) {
                 try {
-                    UserSingleton.getInstance().getUser().pmt.add(new Card(Integer.parseInt(number), cardholder, new SimpleDateFormat("MM,yy").parse(expiry), Integer.parseInt(csv)));
+                    String number = inputNumber.getText().toString().trim();
+                    String cardholder = inputCardholder.getText().toString().trim();
+                    String expiry = inputExpiry.getText().toString().trim();
+                    String csv = inputCsv.getText().toString().trim();
+
+                    UserSingleton.getInstance().getUser().addPmt(new Card(Integer.parseInt(number), cardholder, new SimpleDateFormat("MM,yy").parse(expiry), Integer.parseInt(csv)));
+                    Toast.makeText(getApplicationContext(), "Payment successfully added.", Toast.LENGTH_LONG).show();
+                    finish();
+                    startActivity(getIntent());
                 }
                 catch(Exception e){
                     Toast.makeText(getApplicationContext(), "Error parsing expiry date.", Toast.LENGTH_LONG).show();
-                    onClick(view);
-                    return;
                 }
-                Toast.makeText(getApplicationContext(), "Payment successfully added.", Toast.LENGTH_LONG).show();
-                Intent i = new Intent(AddCardActivity.this, PaymentActivity.class);
-                startActivity(i);
             }
         });
     }

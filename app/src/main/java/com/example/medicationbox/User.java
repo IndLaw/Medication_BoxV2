@@ -8,11 +8,11 @@ public class User{
 
     private String name;
     private String email;
-    public ArrayList<Payment> pmt;
+    private ArrayList<Payment> pmt;
     private String userUID;
-    public ArrayList<Perscription> perscriptions;
+    private ArrayList<Perscription> perscriptions;
     private Insurance insurance;
-    public ArrayList<Box> shipments;
+    private ArrayList<Box> shipments;
     private String password;
     private HashMap<String, Bitmap> pictures;
 
@@ -26,13 +26,9 @@ public class User{
         this.userUID = userUID;
         this.perscriptions = new ArrayList<>();
         this.pictures = new HashMap<String, Bitmap>();
-        this.shipments = new ArrayList<>();
-        this.pmt = new ArrayList<>();
+        shipments = new ArrayList<>();
+        pmt = new ArrayList<>();
         shipments.add(new Box(0));
-
-        for( Perscription p : perscriptions){
-            shipments.get(0).addMed(p);
-        }
 	}
 
     public String getPassword() { return password; }
@@ -62,6 +58,22 @@ public class User{
             }
         }
         return null;
+    }
+
+    public Box getBox(int i){
+        return shipments.get(i);
+    }
+
+    public ArrayList getPmts(){
+        return pmt;
+    }
+
+    public void addPmt(Payment p){
+        pmt.add(p);
+    }
+
+    public Payment removePmt(int i){
+        return pmt.remove(i);
     }
 
     public void addPerscription(Perscription perscription) {

@@ -36,7 +36,7 @@ public class perscrip_upload_choice extends Activity {
             }
         });
 
-        toThePerscripManual.setOnClickListener(new View.OnClickListener() {
+        toThePerscripPic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent toperscrip = new Intent(perscrip_upload_choice.this, UploadImageActivity.class);

@@ -16,7 +16,6 @@ public class Homepage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
 
-
         Button box, doc, pay, logout;
 
         box = findViewById(R.id.gotobox);

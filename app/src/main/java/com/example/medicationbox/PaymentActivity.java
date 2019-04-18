@@ -16,6 +16,7 @@ public class PaymentActivity extends AppCompatActivity {
     int j;
     LinearLayout l;
     User usr;
+    ArrayList<Payment> pmt;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,9 +38,10 @@ public class PaymentActivity extends AppCompatActivity {
 
         //ADD LAYOUT
         l = findViewById(R.id.activity_payment);
+        pmt = usr.getPmts();
 
         j = 0;
-        for (Payment p : usr.pmt) {
+        for (Payment p : pmt) {
             code.add(new TextView(this));
             code.get(j).setLayoutParams(new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
@@ -78,10 +80,10 @@ public class PaymentActivity extends AppCompatActivity {
         while (j < delete.size()) {
             delete.get(j).setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
-                    usr.pmt.remove(j + 1);
+                    usr.removePmt(j + 1);
                     Toast.makeText(getApplicationContext(), "Payment method successfully deleted", Toast.LENGTH_LONG).show();
-                    finish();
-                    startActivity(getIntent());
+                    Intent i = new Intent(PaymentActivity.this, Homepage.class);
+                    startActivity(i);
                 }
             });
 
@@ -92,17 +94,17 @@ public class PaymentActivity extends AppCompatActivity {
         while (j < preferred.size()) {
             preferred.get(j).setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
-                    Payment p = usr.pmt.get(j + 1);
+                    Payment p = pmt.get(j + 1);
 
                     for (int k = j; k >= 0; k--) {
-                        usr.pmt.set(k + 1, usr.pmt.get(k));
+                        pmt.set(k + 1, pmt.get(k));
                     }
 
-                    usr.pmt.set(0, p);
+                    pmt.set(0, p);
 
                     Toast.makeText(getApplicationContext(), "Your preferred payment method has been updated", Toast.LENGTH_LONG).show();
-                    finish();
-                    startActivity(getIntent());
+                    Intent i = new Intent(PaymentActivity.this, Homepage.class);
+                    startActivity(i);
                 }
             });
         }

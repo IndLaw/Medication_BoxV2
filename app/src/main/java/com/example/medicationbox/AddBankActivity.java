@@ -2,6 +2,7 @@ package com.example.medicationbox;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +21,7 @@ public class AddBankActivity extends AppCompatActivity {
         inputRouting = findViewById(R.id.routing);
         inputAccountNo = findViewById(R.id.accountNo);
         inputName = findViewById(R.id.name);
-        Button home = findViewById(R.id.PaymentHome);
+        FloatingActionButton home = findViewById(R.id.AddBankHome);
 
 
         home.setOnClickListener(new View.OnClickListener() {
@@ -31,12 +32,16 @@ public class AddBankActivity extends AppCompatActivity {
         });
 
         confirm.setOnClickListener(new View.OnClickListener() {
-            String routing = inputRouting.getEditableText().toString().trim();
-            String accountNo = inputAccountNo.getEditableText().toString().trim();
-            String name = inputName.getEditableText().toString().trim();
-
             public void onClick(View view) {
-                UserSingleton.getInstance().getUser().pmt.add(new Bank(Integer.parseInt(routing), Integer.parseInt(accountNo), name));
+                String routing = inputRouting.getText().toString().trim();
+                int r = Integer.parseInt(routing);
+                String accountNo = inputAccountNo.getText().toString().trim();
+                int a = Integer.parseInt(accountNo);
+                String name = inputName.getText().toString().trim();
+
+                User usr = UserSingleton.getInstance().getUser();
+                Bank b = new Bank(r, a, name);
+                usr.addPmt(b);
                 Toast.makeText(getApplicationContext(), "Payment successfully added.", Toast.LENGTH_LONG).show();
                 Intent i = new Intent(AddBankActivity.this, PaymentActivity.class);
                 startActivity(i);

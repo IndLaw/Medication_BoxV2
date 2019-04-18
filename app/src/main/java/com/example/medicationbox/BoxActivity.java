@@ -21,7 +21,7 @@ public class BoxActivity extends AppCompatActivity {
     LinearLayout l;
     int j;
 
-    Box box = usr.shipments.get(usr.shipments.size() - 1);
+    Box box = usr.getBox(0);
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +63,7 @@ public class BoxActivity extends AppCompatActivity {
         while (j < delete.size()) {
             delete.get(j).setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
-                    Perscription p = box.products.remove(j);
+                    Perscription p = box.removeMed(j - 1);
                     Toast.makeText(getApplicationContext(), "You have successfully opted for physical pickup of " + p.getMedName(), Toast.LENGTH_LONG).show();
                     finish();
                     startActivity(getIntent());
