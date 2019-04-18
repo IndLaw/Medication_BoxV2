@@ -45,6 +45,14 @@ public class User{
 
     public String getUID() { return userUID; }
 
+    public Insurance getInsurance() {
+        return insurance;
+    }
+
+    public void setInsurance(Insurance insurance) {
+        this.insurance = insurance;
+    }
+
     public Perscription getPerscription(String medName) {
         for (Perscription p : perscriptions) {
             if (medName.equals(p.getMedName())) {
