@@ -16,8 +16,8 @@ public class perscrip_upload_choice extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perscrip_upload_choice);
 
-        toThePerscripPic = findViewById(R.id.toinsurancecard);
-        toThePerscripManual = findViewById(R.id.toperscription);
+        toThePerscripPic = findViewById(R.id.toPicPerUpload);
+        toThePerscripManual = findViewById(R.id.toManualPerUpload);
         Button home = findViewById(R.id.PerscripUploadChoiceHome);
 
         home.setOnClickListener(new View.OnClickListener() {
@@ -31,6 +31,15 @@ public class perscrip_upload_choice extends Activity {
             @Override
             public void onClick(View v) {
                 Intent toperscrip = new Intent(perscrip_upload_choice.this, PerscriptionView.class);
+                startActivity(toperscrip);
+            }
+        });
+
+        toThePerscripManual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toperscrip = new Intent(perscrip_upload_choice.this, UploadImageActivity.class);
+                toperscrip.putExtra("From", "perscrip");
                 startActivity(toperscrip);
             }
         });
