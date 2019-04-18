@@ -24,14 +24,23 @@ public class insure_upload_choice extends Activity {
             }
         });
 
-        toTheInsurePic = findViewById(R.id.toinsurancecard);
-        toTheInsureManual = findViewById(R.id.toperscription);
+        toTheInsurePic = findViewById(R.id.toPicInsUpload);
+        toTheInsureManual = findViewById(R.id.toManualInsUpload);
 
         toTheInsureManual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent toperscrip = new Intent(insure_upload_choice.this, InsuranceView.class);
-                startActivity(toperscrip);
+                Intent toinsure = new Intent(insure_upload_choice.this, InsuranceView.class);
+                startActivity(toinsure);
+            }
+        });
+
+        toTheInsurePic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toinsure = new Intent(insure_upload_choice.this, UploadImageActivity.class);
+                toinsure.putExtra("From", "Insure");
+                startActivity(toinsure);
             }
         });
     }
