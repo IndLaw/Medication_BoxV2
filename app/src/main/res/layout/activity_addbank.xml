@@ -73,6 +73,5 @@
             android:background="@color/lightBlue"
             android:textColor="@color/white"/>
 
-
     </LinearLayout>
 </LinearLayout>
