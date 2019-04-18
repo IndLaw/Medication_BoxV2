@@ -28,7 +28,7 @@ import android.support.annotation.NonNull;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = LoginActivity.class.getSimpleName();
-    private boolean success = false;
+
     private static String KEY_UID = "uid";
     private static String KEY_NAME = "name";
     private static String KEY_EMAIL = "email";
@@ -40,7 +40,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private SessionManager session;
 
-    private FirebaseUser user;
+    private boolean success = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
 
         // check user is already logged in
         if (session.isLoggedIn()) {
-            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+            Intent i = new Intent(LoginActivity.this, Homepage.class);
             startActivity(i);
             finish();
         }
@@ -91,9 +92,11 @@ public class LoginActivity extends AppCompatActivity {
                         // login user
                         //loginProcess(email, password);
                        boolean successful = login(email, password);
+                       Toast.makeText(getApplicationContext(), "Result is " + successful, Toast.LENGTH_SHORT).show();
 
                        if (successful == true)
                        {
+                           Toast.makeText(getApplicationContext(), "Logging in...", Toast.LENGTH_SHORT).show();
                            Intent i = new Intent(LoginActivity.this, Homepage.class);
                            startActivity(i);
                        }
@@ -234,16 +237,22 @@ public class LoginActivity extends AppCompatActivity {
 
     private boolean login(String email, String password)
     {
+        final String em = email;
+
         final FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        Toast.makeText(getApplicationContext(), "Beginning to authenticate...", Toast.LENGTH_SHORT).show();
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            FireDatabase storage = new FireDatabase();
+                            User user = storage.retrieveUser(em);
                             // Sign in success, update UI with the signed-in user's information
                             Log.e("Signin", "signInWithEmail:success");
-                            user = mAuth.getCurrentUser();
+                            UserSingleton.getInstance().setUser(user);
                             success = true;
+                            Toast.makeText(getApplicationContext(), "Success is " + success, Toast.LENGTH_SHORT).show();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.e(TAG, "signInWithEmail:failure", task.getException());
@@ -251,7 +260,6 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 });
-
         return success;
     }
 }
