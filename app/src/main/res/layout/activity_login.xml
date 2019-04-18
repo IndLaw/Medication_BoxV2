@@ -65,7 +65,7 @@
 
     <Button
         android:id="@+id/btnLinkToRegisterScreen"
-        android:layout_width="match_parent"
+        android:layout_width="355dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dip"
         android:background="@null"
@@ -76,7 +76,7 @@
 
     <Button
         android:id="@+id/btnForgotPassword"
-        android:layout_width="match_parent"
+        android:layout_width="355dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:background="@null"

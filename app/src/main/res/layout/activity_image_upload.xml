@@ -6,30 +6,25 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:orientation="vertical"
+    android:gravity="center"
     tools:context=".UploadImageActivity">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/ImageUploadHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_menu_revert"
+        app:backgroundTint="@color/queenBlue"/>
 
     <LinearLayout
         android:id="@+id/layout_button"
         android:orientation="vertical"
-        android:layout_alignParentTop="true"
-        android:weightSum="2"
-        android:layout_width="match_parent"
-        android:layout_height="600dp">
+        android:layout_width="355dp"
+        android:layout_height="match_parent"
+        android:gravity="center">
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/ImageUploadHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top|start"
-            android:layout_margin="@dimen/fab_margin"
-            app:srcCompat="@android:drawable/ic_menu_revert"
-            app:backgroundTint="@color/queenBlue"/>
-
-        <LinearLayout
-            android:layout_width="355dp"
-            android:layout_height="600dp"
-            android:orientation="vertical"
-            android:gravity="center">
 
             <TextView
                 android:layout_width="355dp"
@@ -48,6 +43,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/lightBlue"
                 android:fontFamily="sans-serif-black"
+                android:layout_marginTop="20dp"
                 android:padding="16dp"
                 android:text="Choose"
                 android:textColor="@color/white" />
@@ -58,13 +54,11 @@
                 android:layout_height="wrap_content"
                 android:background="@color/lightBlue"
                 android:fontFamily="sans-serif-black"
+                android:layout_marginTop="20dp"
                 android:padding="16dp"
                 android:text="Upload"
                 android:textColor="@color/white" />
 
 
-        </LinearLayout>
     </LinearLayout>
-
-
 </LinearLayout>
