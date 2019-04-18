@@ -3,6 +3,7 @@ package com.example.medicationbox;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.widget.Button;
 
@@ -18,7 +19,7 @@ public class perscrip_upload_choice extends Activity {
 
         toThePerscripPic = findViewById(R.id.toPicPerUpload);
         toThePerscripManual = findViewById(R.id.toManualPerUpload);
-        Button home = findViewById(R.id.PerscripUploadChoiceHome);
+        FloatingActionButton home = findViewById(R.id.PerscripUploadChoiceHome);
 
         home.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
