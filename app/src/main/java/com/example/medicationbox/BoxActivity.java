@@ -53,7 +53,7 @@ public class BoxActivity extends AppCompatActivity {
             delete.add(new Button(this));
             delete.get(j).setLayoutParams(new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            delete.get(j).setText("Delete Payment Method");
+            delete.get(j).setText("Opt for physical pickup");
             l.addView(delete.get(j));
 
             j++;
