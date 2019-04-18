@@ -57,6 +57,7 @@
     <Button
         android:layout_width="355dp"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
         android:text="@string/login"
         android:layout_marginTop="20dp"
         android:background="@color/lightBlue"

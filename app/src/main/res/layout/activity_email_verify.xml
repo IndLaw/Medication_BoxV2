@@ -44,6 +44,7 @@
         android:id="@+id/btnVerify"
         android:layout_width="355dp"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
         android:background="@color/lightBlue"
         android:textColor="@color/white"
         android:text="Verify"/>
@@ -51,6 +52,7 @@
     <Button
         android:layout_width="355dp"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
         android:layout_marginTop="20dp"
         android:background="@null"
         android:textColor="@color/queenBlue"
@@ -60,6 +62,7 @@
     <TextView
         android:id="@+id/otpCountDown"
         android:layout_width="355dp"
+        android:fontFamily="sans-serif-black"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center"/>
