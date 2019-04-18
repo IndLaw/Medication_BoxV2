@@ -21,13 +21,13 @@
             android:screenOrientation="portrait"/>
 
         <activity android:name=".DocumentView"
-            android:label="MedicationBox"></activity>
+            android:label="MedicationBox"/>
 
         <activity android:name=".InsuranceView"
-            android:label="MedicationBox"></activity>
+            android:label="MedicationBox"/>
 
         <activity android:name=".PerscriptionView"
-            android:label="MedicationBox"></activity>
+            android:label="MedicationBox"/>
 
         <activity
             android:name=".insure_upload_choice"
@@ -50,7 +50,6 @@
             android:name=".UploadImageActivity"
             android:screenOrientation="portrait"
             android:label="@string/app_name">
-            android:screenOrientation="portrait">
         </activity>
 
         <activity
