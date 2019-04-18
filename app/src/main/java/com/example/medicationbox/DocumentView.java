@@ -3,6 +3,7 @@ package com.example.medicationbox;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.widget.Button;
 
@@ -17,7 +18,7 @@ public class DocumentView extends AppCompatActivity {
 
         toTheInsuranceCardChoice = findViewById(R.id.toinsurancecard);
         toThePerscriptionChoice = findViewById(R.id.toperscription);
-        Button home = findViewById(R.id.AddDocChoiceHome);
+        FloatingActionButton home = findViewById(R.id.AddDocChoiceHome);
 
 
         home.setOnClickListener(new View.OnClickListener() {
