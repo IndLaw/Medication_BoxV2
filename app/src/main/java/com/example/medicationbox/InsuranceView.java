@@ -52,6 +52,8 @@ public class InsuranceView extends AppCompatActivity {
 
                 Insurance insuranceCard = new Insurance(ipn, ipnum, ipln, icop, icn);
 
+                UserSingleton.getInstance().getUser().setInsurance(insuranceCard);
+
                 Intent i = new Intent(InsuranceView.this, DocumentView.class);
                 startActivity(i);
             }
