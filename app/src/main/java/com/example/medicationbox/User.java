@@ -29,6 +29,10 @@ public class User{
         pmt = new ArrayList<>();
         shipments = new ArrayList<>();
         shipments.add(new Box(0));
+
+        for( Perscription p : perscriptions){
+            shipments.get(0).addMed(p);
+        }
 	}
 
     public String getPassword() { return password; }
