@@ -10,7 +10,7 @@
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/AddDocChoiceHome"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="top|start"
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/ic_menu_revert"
@@ -18,7 +18,7 @@
 
     <LinearLayout
         android:layout_width="355dp"
-        android:layout_height="600dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center">
 
