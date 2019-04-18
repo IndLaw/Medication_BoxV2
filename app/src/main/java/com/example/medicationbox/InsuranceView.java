@@ -51,6 +51,9 @@ public class InsuranceView extends AppCompatActivity {
                 String icn = icompanyname.getText().toString();
 
                 Insurance insuranceCard = new Insurance(ipn, ipnum, ipln, icop, icn);
+
+                Intent i = new Intent(InsuranceView.this, DocumentView.class);
+                startActivity(i);
             }
         });
     }

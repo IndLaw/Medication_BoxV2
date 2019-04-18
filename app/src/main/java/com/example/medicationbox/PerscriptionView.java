@@ -67,6 +67,9 @@ public class PerscriptionView extends AppCompatActivity {
                 User usr = UserSingleton.getInstance().getUser();
                 usr.addPerscription(perscrip);
                 usr.shipments.get(usr.shipments.size() - 1).addMed(perscrip);
+
+                Intent i = new Intent(PerscriptionView.this, DocumentView.class);
+                startActivity(i);
             }
         });
     }
