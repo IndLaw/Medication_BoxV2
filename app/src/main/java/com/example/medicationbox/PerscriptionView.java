@@ -64,8 +64,9 @@ public class PerscriptionView extends AppCompatActivity {
 
                 Perscription perscrip = new Perscription(dName, pName, pAge, dAddress, pAddress, mName, rNum, pdose, pquantity);
 
-                UserSingleton.getInstance().getUser().addPerscription(perscrip);
-                UserSingleton.getInstance().getUser().shipments.get(UserSingleton.getInstance().getUser().shipments.size() - 1).addMed(perscrip);
+                User usr = UserSingleton.getInstance().getUser();
+                usr.addPerscription(perscrip);
+                usr.getShipments(0).addMed(perscrip);
 
                 Intent i = new Intent(PerscriptionView.this, DocumentView.class);
                 startActivity(i);
