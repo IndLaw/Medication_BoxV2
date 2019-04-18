@@ -8,10 +8,10 @@ public class Box {
     private Calendar shipmentDate;
     User usr;
 
-    public Box(){
-        usr = UserSingleton.getInstance().getUser();
+    public Box(int i){
+        products = new ArrayList<>();
 
-        if(usr.shipments.size() == 0){
+        if(i == 0){
             shipmentDate = Calendar.getInstance();
         }
         else {
@@ -23,6 +23,8 @@ public class Box {
         for( Perscription p : usr.perscriptions){
             products.add(p);
         }
+        
+        usr = UserSingleton.getInstance().getUser();
     }
 
     public void addMed(Perscription p){
