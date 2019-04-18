@@ -28,7 +28,8 @@ public class User{
         this.pictures = new HashMap<String, Bitmap>();
         pmt = new ArrayList<>();
         shipments = new ArrayList<>();
-        shipments.add(new Box());
+        Box box = new Box();
+        shipments.add(box);
 	}
 
     public String getPassword() { return password; }
