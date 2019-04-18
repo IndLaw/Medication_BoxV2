@@ -21,12 +21,6 @@
             app:srcCompat="@drawable/mederxbox" />
 
         <Button
-            android:id="@+id/reschedule"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Reschedule delivery date" />
-
-        <Button
             android:id="@+id/BoxHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -14,11 +14,13 @@ import java.util.ArrayList;
 public class PaymentActivity extends AppCompatActivity {
     int j;
     LinearLayout l;
-    User usr = UserSingleton.getInstance().getUser();
+    User usr;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
+
+        usr = UserSingleton.getInstance().getUser();
 
         ArrayList<TextView> code = new ArrayList<>();
         ArrayList<Button> delete = new ArrayList<>();
