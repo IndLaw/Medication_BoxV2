@@ -4,12 +4,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Box {
-    public ArrayList<Perscription> products;
+    public ArrayList<Perscription> products = new ArrayList<>();
     private Calendar shipmentDate;
 
     public Box(int i){
-        products = new ArrayList<>();
-
         if(i == 0){
             shipmentDate = Calendar.getInstance();
         }

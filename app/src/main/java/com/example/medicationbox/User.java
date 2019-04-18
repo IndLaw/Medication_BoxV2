@@ -12,7 +12,7 @@ public class User{
     private String userUID;
     public ArrayList<Perscription> perscriptions;
     private Insurance insurance;
-    public ArrayList<Box> shipments = new ArrayList<>();
+    private ArrayList<Box> shipments = new ArrayList<>();
     private String password;
     private HashMap<String, Bitmap> pictures;
 
@@ -86,5 +86,9 @@ public class User{
     public Bitmap changePicture(String picID, Bitmap picture) {
         pictures.put(picID, picture);
         return pictures.get(picID);
+    }
+
+    public Box getShipments(int i){
+        return shipments.get(i);
     }
 }

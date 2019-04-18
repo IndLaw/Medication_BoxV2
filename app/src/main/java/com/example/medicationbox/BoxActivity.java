@@ -20,13 +20,14 @@ public class BoxActivity extends AppCompatActivity {
     private int year, month, day;
     LinearLayout l;
     int j;
-    Box box = usr.shipments.get(usr.shipments.size() - 1);
+    Box box;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_box);
 
         Button home = findViewById(R.id.BoxHome);
+        box = usr.getShipments(0);
 
         home.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
