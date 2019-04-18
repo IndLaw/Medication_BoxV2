@@ -99,12 +99,14 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-
     public void createAccount(String name, String email, String password)
     {
         final String tEmail = email;
         final String tPassword = password;
         final String tName = name;
+
+        user = new User(tName, tEmail, tPassword, "User 1");
+        UserSingleton.getInstance().setUser(user);
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
