@@ -40,8 +40,12 @@
 
         <Button
             android:id="@+id/AddPaymentHome"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:layout_marginTop="50dp"
+            android:background="@color/lightBlue"
+            android:textColor="@color/white"
             android:text="Home" />
 
     </LinearLayout>
