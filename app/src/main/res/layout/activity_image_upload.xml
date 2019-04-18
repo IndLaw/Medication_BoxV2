@@ -1,33 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:orientation="vertical"
-    android:gravity="center"
     tools:context=".UploadImageActivity">
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/ImageUploadHome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|start"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_menu_revert"
-        app:backgroundTint="@color/queenBlue"/>
 
     <LinearLayout
         android:id="@+id/layout_button"
         android:orientation="vertical"
-        android:layout_width="355dp"
-        android:layout_height="match_parent"
-        android:gravity="center">
+        android:layout_alignParentTop="true"
+        android:weightSum="2"
+        android:layout_width="match_parent"
+        android:layout_height="600dp">
 
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/ImageUploadHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_margin="@dimen/fab_margin"
+            app:srcCompat="@android:drawable/ic_menu_revert"
+            app:backgroundTint="@color/queenBlue"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="269dp"
+            android:gravity="center">
 
             <TextView
-                android:layout_width="355dp"
+                android:layout_width="297dp"
                 android:layout_height="80dp"
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center"
@@ -36,29 +39,45 @@
                 android:textColor="@color/queenBlue"
                 android:textSize="18dp" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:gravity="top">
+
 
             <Button
                 android:id="@+id/btnChoose"
-                android:layout_width="match_parent"
+                android:layout_width="10dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
                 android:background="@color/lightBlue"
                 android:fontFamily="sans-serif-black"
-                android:layout_marginTop="20dp"
                 android:padding="16dp"
                 android:text="Choose"
                 android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/btnUpload"
-                android:layout_width="match_parent"
+                android:layout_width="10dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
                 android:background="@color/lightBlue"
                 android:fontFamily="sans-serif-black"
-                android:layout_marginTop="20dp"
                 android:padding="16dp"
-                android:text="Upload"
+                android:text="Extract"
                 android:textColor="@color/white" />
+            
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
 
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+
+</RelativeLayout>

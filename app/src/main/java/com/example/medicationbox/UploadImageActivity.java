@@ -19,7 +19,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.EditText;
 import android.text.InputType;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.graphics.Rect;
+
 
 import com.example.medicationbox.helper.Functions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,15 +33,31 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import android.support.design.widget.FloatingActionButton;
+
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 
 import java.io.IOException;
 import java.util.UUID;
+
+import com.google.firebase.ml.vision.FirebaseVision;
+import com.google.firebase.ml.vision.common.FirebaseVisionImage;
+import com.google.firebase.ml.vision.document.FirebaseVisionDocumentText;
+import com.google.firebase.ml.vision.text.FirebaseVisionText;
+import com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer;
+import com.google.firebase.ml.vision.text.RecognizedLanguage;
+import java.util.List;
 
 public class UploadImageActivity extends AppCompatActivity {
 
     //Variables
     private Button btnChoose, btnUpload;
-    private ImageView imageView;
+    //private ImageView imageView;
+    private Bitmap picture;
 
     private Uri filePath;
 
@@ -59,8 +78,8 @@ public class UploadImageActivity extends AppCompatActivity {
         //Initialize Views
         btnChoose = (Button) findViewById(R.id.btnChoose);
         btnUpload = (Button) findViewById(R.id.btnUpload);
-        //imageView = (ImageView) findViewById(R.id.imgView);
-        Button home = findViewById(R.id.ImageUploadHome);
+//        imageView = (ImageView) findViewById(R.id.imgView);
+        FloatingActionButton home = findViewById(R.id.ImageUploadHome);
 
 
         home.setOnClickListener(new View.OnClickListener() {
@@ -77,12 +96,12 @@ public class UploadImageActivity extends AppCompatActivity {
             }
         });
 
-        // btnUpload.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                uploadImage();
-//            }
-//        });
+         btnUpload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                extractImage(picture);
+            }
+        });
     }
 
     private void chooseImage() {
@@ -101,9 +120,9 @@ public class UploadImageActivity extends AppCompatActivity {
             filePath = data.getData();
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
-                Bitmap rotatedBitmap = rotateImage(bitmap);
-                imageView.setImageBitmap(rotatedBitmap);
-                setImageName(rotatedBitmap);
+                picture = rotateImage(bitmap);
+//                imageView.setImageBitmap(picture);
+                setImageName(picture);
             }
             catch (IOException e)
             {
@@ -144,40 +163,31 @@ public class UploadImageActivity extends AppCompatActivity {
         builder.show();
     }
 
-//    private void uploadImage() {
-//
-//        if(filePath != null)
-//        {
-//            final ProgressDialog progressDialog = new ProgressDialog(this);
-//            progressDialog.setTitle("Uploading...");
-//            progressDialog.show();
-//
-//            StorageReference ref = storageReference.child("images/"+ UUID.randomUUID().toString());
-//            ref.putFile(filePath)
-//                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//                        @Override
-//                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//                            progressDialog.dismiss();
-//                            Toast.makeText(UploadImageActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
-//                        }
-//                    })
-//                    .addOnFailureListener(new OnFailureListener() {
-//                        @Override
-//                        public void onFailure(@NonNull Exception e) {
-//                            progressDialog.dismiss();
-//                            Toast.makeText(UploadImageActivity.this, "Failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
-//                        }
-//                    })
-//                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-//                        @Override
-//                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-//                            double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot
-//                                    .getTotalByteCount());
-//                            progressDialog.setMessage("Uploaded "+(int)progress+"%");
-//                        }
-//                    });
-//        }
-//    }
+    private void extractImage(Bitmap bitmap) {
+        FirebaseVisionImage bitImage = FirebaseVisionImage.fromBitmap(bitmap);
+        //FirebaseVisionDocumentTextRecognizer detector = FirebaseVision.getInstance()
+               // .getCloudDocumentTextRecognizer();
+        FirebaseVisionTextRecognizer detector = FirebaseVision.getInstance()
+                .getOnDeviceTextRecognizer();
+        detector.processImage(bitImage)
+                .addOnSuccessListener(new OnSuccessListener<FirebaseVisionText >() {
+                    @Override
+                    public void onSuccess(FirebaseVisionText result) {
+                        // Task completed successfully
+                        String resultText = result.getText();
+                        TextView textView = (TextView) findViewById(R.id.textView1);
+                        textView.setText(resultText);
+                        // Perscription newPerscript = new Perscription(resultText);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Task failed with an exception
+                        // ...
+                    }
+                });
+    }
 
     public static Bitmap rotateImage(Bitmap source) {
         Matrix matrix = new Matrix();

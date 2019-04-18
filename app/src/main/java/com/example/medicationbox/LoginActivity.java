@@ -92,14 +92,14 @@ public class LoginActivity extends AppCompatActivity {
                         // login user
                         //loginProcess(email, password);
                        boolean successful = login(email, password);
-                       Toast.makeText(getApplicationContext(), "Result is " + successful, Toast.LENGTH_SHORT).show();
+//                       Toast.makeText(getApplicationContext(), "Result is " + successful, Toast.LENGTH_SHORT).show();
 
-                       if (successful == true)
-                       {
-                           Toast.makeText(getApplicationContext(), "Logging in...", Toast.LENGTH_SHORT).show();
-                           Intent i = new Intent(LoginActivity.this, Homepage.class);
-                           startActivity(i);
-                       }
+//                       if (successful == true)
+//                       {
+//                           Toast.makeText(getApplicationContext(), "Logging in...", Toast.LENGTH_SHORT).show();
+//                           Intent i = new Intent(LoginActivity.this, Homepage.class);
+//                           startActivity(i);
+//                       }
                     } else {
                         Toast.makeText(getApplicationContext(), "Email is not valid!", Toast.LENGTH_SHORT).show();
                     }
@@ -247,12 +247,13 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             FireDatabase storage = new FireDatabase();
-                            User user = storage.retrieveUser(em);
+//                            User user = storage.retrieveUser(em);
                             // Sign in success, update UI with the signed-in user's information
                             Log.e("Signin", "signInWithEmail:success");
-                            UserSingleton.getInstance().setUser(user);
+//                            UserSingleton.getInstance().setUser(user);
                             success = true;
-                            Toast.makeText(getApplicationContext(), "Success is " + success, Toast.LENGTH_SHORT).show();
+                            Intent i = new Intent(LoginActivity.this, Homepage.class);
+                            startActivity(i);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.e(TAG, "signInWithEmail:failure", task.getException());

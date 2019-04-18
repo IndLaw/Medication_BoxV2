@@ -16,7 +16,7 @@ public class AddPmtActivity extends AppCompatActivity {
 
         card = findViewById(R.id.addCard);
         bank = findViewById(R.id.addBank);
-        Button home = findViewById(R.id.PaymentHome);
+        Button home = findViewById(R.id.AddPaymentHome);
 
         home.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {

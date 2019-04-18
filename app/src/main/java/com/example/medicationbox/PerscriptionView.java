@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -37,7 +38,7 @@ public class PerscriptionView extends AppCompatActivity {
         medicationname = findViewById(R.id.medsname);
         dosedescription = findViewById(R.id.perscripdose);
         quantity = findViewById(R.id.perquantity);
-        Button home = findViewById(R.id.PerscripEnterHome);
+        FloatingActionButton home = findViewById(R.id.PerscripEnterHome);
 
 
         home.setOnClickListener(new View.OnClickListener() {
@@ -64,9 +65,8 @@ public class PerscriptionView extends AppCompatActivity {
 
                 Perscription perscrip = new Perscription(dName, pName, pAge, dAddress, pAddress, mName, rNum, pdose, pquantity);
 
-                User usr = UserSingleton.getInstance().getUser();
-                usr.addPerscription(perscrip);
-                usr.getShipments(0).addMed(perscrip);
+                UserSingleton.getInstance().getUser().addPerscription(perscrip);
+                //UserSingleton.getInstance().getUser().shipments.get(UserSingleton.getInstance().getUser().shipments.size() - 1).addMed(perscrip);
 
                 Intent i = new Intent(PerscriptionView.this, DocumentView.class);
                 startActivity(i);

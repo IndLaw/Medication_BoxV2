@@ -46,11 +46,11 @@
             android:id="@+id/ipolicynum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
             android:ems="10"
-            android:padding="12dp"
-            android:inputType="textPersonName"
-            android:hint="Policy Number" />
+            android:fontFamily="sans-serif-light"
+            android:hint="Policy Number"
+            android:inputType="number"
+            android:padding="12dp" />
 
         <EditText
             android:id="@+id/iplanname"

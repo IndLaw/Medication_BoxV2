@@ -25,6 +25,18 @@ public class Perscription {
         this.quantity = quantity;
     }
 
+    public Perscription(String prescriptionText) {
+        this.doctorName = prescriptionText;
+        this.patientName = "";
+        this.patientAge = 0;
+        this.doctorAddress = "";
+        this.patientAddress = "";
+        this.medName = "";
+        this.refill = 0;
+        this.dose = "";
+        this.quantity = "";
+    }
+
     public String getQuantity() { return quantity; }
 
     public void setQuantity(String quantity) { this.quantity = quantity; }
