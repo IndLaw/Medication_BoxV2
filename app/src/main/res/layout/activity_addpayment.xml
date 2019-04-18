@@ -4,21 +4,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="355dp"
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical">
 
         <Button
             android:id="@+id/addCard"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/lightBlue"
+            android:textColor="@color/white"
             android:text="Add Card" />
 
         <Button
             android:id="@+id/addBank"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/lightBlue"
+            android:textColor="@color/white"
             android:text="Add Bank" />
 
         <Button
